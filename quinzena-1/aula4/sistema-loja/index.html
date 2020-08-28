@@ -4,33 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Nome da Loja</title>
+    <title>Hortifruti Verde</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div>
-        <h1>Bem-vind@ ao <em>Hortifruti Verde</em>!</h1>
-        <p>Um Arco-íris de Sabor!</p>
-    </div>
+    <header>
+        <div>
+            <h3>Hortifruti Verde</h3>
+        </div>
+        
+        <div>
+            <a href="index.html">Página Inicial</a>
+            <a href="ctrl-estoque.html">Controle de Estoque</a>
+            <a href="add-produto.html">Adicionar Produto</a>
+            <a href="funcionarios.html">Funcionários</a>
+        </div>
+    </header>
+    
+    <div class="content">
+        <div class="h1-div">
+            <h1>Bem-vind@ ao <em>Hortifruti Verde</em>!</h1>
+            <p>Um Arco-íris de Sabor!</p>
+        </div>
+        
+        <h2>Ofertas</h2>
+        <p>As melhores frutas, verduras e legumes da região!</p>
+        <table>
+        <tr>
+        <td class="oferta">
+            <p class="nomeProduto">Maçã</p>
+            <img class="imagemProduto" src="img/maca.jpg" alt="Maçã"/>
+            <p class="valorOferta">R$2,59</p>
+        </td>
 
-    <div>
-        <a href="index.html">Página Inicial</a>
-        <a href="ctrl-estoque.html">Controle de Estoque</a>
-        <a href="add-produto.html">Adicionar Produto</a>
-        <a href="funcionarios.html">Funcionários</a>
+        <td class="oferta">
+            <p class="nomeProduto">Banana da Terra </p>
+            <img class="imagemProduto" src="img/banana.jpg" alt="Banana"/>
+            <p class="valorOferta">R$2,00</p>
+        </td>
+        
+        <td class="oferta">
+            <p class="nomeProduto">Mamão Papaya </p>
+            <img class="imagemProduto" src="img/mamao.jpg" alt="Mamão"/>
+            <p class="valorOferta">R$8,99</p>
+        </td>
+        </tr>
+        </table>
     </div>
-
-    <div>
-        As melhores frutas, verduras e legumes da região!
-    </div>
-
-    <div>
+    <footer>
         <p>Siga-nos nas redes sociais!</p>
 
         <div>
-            <img src="https://image.flaticon.com/icons/png/512/25/25305.png"/>
-            <img src="https://image.flaticon.com/icons/png/512/25/25425.png"/>
-            <img src="https://image.flaticon.com/icons/png/512/8/8800.png"/>
+           <a href="https://www.facebook.com"><img class="icon" src="https://image.flaticon.com/icons/png/512/25/25305.png"/></a>
+           <a href="https://www.instagram.com"> <img class="icon" src="https://image.flaticon.com/icons/png/512/25/25425.png"/></a>
+           <a href="https://www.twitter.com"> <img class="icon" src="https://image.flaticon.com/icons/png/512/8/8800.png"/></a>
         </div>
-    </div>
+    </footer>
+
 </body>
 </html>

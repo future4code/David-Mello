@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    margin: 0;
+    padding:0;
+    height:100%;
+  }
+body {
+    height: 100%;
+    background-color: rgb(238, 243, 191);
+    font-family: 'Montserrat', sans-serif; 
+} 
+
+header {
+    background-color: green;
+    color: white;
+    text-align: center;
+    height: 10%;
+    
+}
+
+a {
+    color: white;
+    padding: 8px 16px 4px;
+    font-size: large;
+    text-decoration: none;
+}
+
+.content {
+    text-align: center;
+    height: 70%;
+    align-items: center;
+}
+
+h1 {
+    margin: 24px auto 8px;
+    font-family: 'Alata', sans-serif;
+}
+
+.h1-div {
+    margin: 72px;
+}
+
+h2 {
+    font-size: xx-large;
+    margin: 24px auto 16px;
+    font-family: 'Alata', sans-serif;
+}
+
+h3 {
+    padding: 8px;
+    font-family: 'Alata', sans-serif;
+}
+
+table {
+    align-items: center;
+    display: inline;
+}
+.oferta {
+    border: solid black 4px;
+    padding: 8px;
+    margin-right:40px;
+    width: 30%;
+}
+
+.imagemProduto {
+    width: 120px;
+    height: 120px;
+}
+
+footer {
+    background-color: yellowgreen;
+    color: white;
+    text-align: center;
+    height: 25%;
+    margin-top: 24px;
+}
+
+footer p {
+    padding: 8px;
+    color: black;
+}
+
+.icon {
+    padding: 8px 16px 0px 16px;
+    width: 40px;
+    height: 40px;
+}
+
+/* Funcionários */
+ul {
+    height: fit-content;
+}
+li {
+    display: inline-grid;
+
+}
+.imgFuncionario {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+
+}
+
+.nomeFuncionario {
+    display: inline;
+    padding: 4px;
+    text-align: center;
+    font-size: large;
+    font-family: 'Alata', sans-serif;
+}
+
+/*Add Produto*/
+
+form {
+    border: 2px solid green;
+    width: 50%;
+    padding: 16px;
+    display: inline-block;
+    background-color: rgb(231, 243, 212);
+}
+
+.inputDiv {
+    margin: 24px;
+}
+
+label {
+    font-size: large;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input {
+    border: 2px solid green;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+button { 
+    padding: 8px;
+    background-color: greenyellow; 
+    border: 2px rgb(211, 250, 153) ;
+    border-radius: 5px;
+}
+
+/*Estoque*/
+
+.h2-estoque {
+    text-align: center;
+}
+table {
+    margin: 40px;
+}
+
+th {
+    padding: 8px;
+    border-right: solid black 1px;
+}
+
+td {
+    padding: 8px;
+    border-right: solid black 1px;
+}
