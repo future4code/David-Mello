@@ -9,27 +9,78 @@ div {
     border: 1px solid black;
 }
 
+#main-container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.flexDivColor {
+    display: flex;
+    height: 15%;
+    border: none;
+}
+
+.flexDivBlack {
+    display: flex;
+    height: 40%;
+    border: none;
+}
+
+.flexDivWhite {
+    display: flex;
+    height: 15%;
+    border: none;
+}
+
 #first-block {
     background-color: red;
+    width: 100vw;
+    height: 15%;
+    border: none;
 }
 
 .blue-block {
     background-color: blue;
+    margin: 12px;
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .yellow-block {
     background-color: yellow;
+    margin: 12px;
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .green-block {
     background-color: green;
+    margin: 12px;
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .black-block {
     background-color: black;
     color: white;
+    width: 50%;
+    margin: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .white-block {
     background-color: white;
+    margin: 12px;
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
