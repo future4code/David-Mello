@@ -1,0 +1,45 @@
+* {
+    padding:0;
+    margin: 0;
+}
+
+body {
+    height: 100%;
+    width: 100vw;
+}
+
+header {
+    height: 20vh;
+    display: flex;
+    align-items: center;
+}
+
+
+nav {
+    height: 20vh;
+    display: flex;
+    align-items: center;
+}
+
+#logo {
+    margin: 2em;
+    max-height: 5em;
+}
+
+
+#firstSection {
+    color:white;
+    text-shadow: 1px 1px black;
+    height: 100vh;
+    width: 80vw;
+    background-image: url(images/happy-woman-in-red-dress-driving-car-ptypnpt.jpg);
+}
+
+section {
+    height: 100vh;
+    border: 2px solid black;
+}
+
+footer {
+    height: 10vh;
+}
