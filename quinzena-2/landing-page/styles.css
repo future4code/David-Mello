@@ -1,24 +1,28 @@
 * {
     padding:0;
     margin: 0;
+    font-family: sans-serif;
 }
 
 body {
     height: 100%;
-    width: 100vw;
 }
 
 header {
     height: 20vh;
     display: flex;
     align-items: center;
+    padding-left: 2em;
+    border-bottom: #ff5c5c solid 2px;
 }
 
 
 nav {
     height: 20vh;
+    flex-grow: 1;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 #logo {
@@ -26,19 +30,139 @@ nav {
     max-height: 5em;
 }
 
+nav>button {
+    color: white;
+    background-color: #ff5c5c;
+    font-size: larger;
+    height: 100%;
+    padding: 1em;
+    border: none;
+}
 
-#firstSection {
-    color:white;
-    text-shadow: 1px 1px black;
-    height: 100vh;
-    width: 80vw;
-    background-image: url(images/happy-woman-in-red-dress-driving-car-ptypnpt.jpg);
+nav>a {
+    padding-left: 1em;
+    font-size: larger;
+}
+
+nav>.bold {
+    color: #ff5c5c;
+    font-weight: bold;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
 section {
     height: 100vh;
-    border: 2px solid black;
 }
+
+
+#firstSection {
+    height: 100vh;
+    width: 1200px;
+    background-image: url(images/happy-woman-in-red-dress-driving-car-ptypnpt.jpg);
+    margin: 4em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 1px 1px;
+    grid-template-areas:
+      ". . ."
+      ". h1 ."
+      ". p ."
+      ". button ."
+      ". . .";
+}
+
+#firstSection>h1 {
+ 
+    grid-area: h1; 
+    font-size: xxx-large;
+    color: #ff5c5c;
+    text-shadow: 5px 5px 25px whitesmoke;
+}
+
+#firstSection>p {
+     grid-area: p;
+    font-size: x-large;
+    color: white;
+    text-shadow: 5px 5px 12px black;
+}
+
+#firstSection>button { 
+    grid-area: button;
+    border: none;
+    border-radius: 50px;
+    background-color: #ff5c5c;
+    color: white;
+    font-size: larger;
+    max-width: 202px;
+    max-height: 48px;
+
+ }
+
+ #firstSection>button:hover {
+     background-color: rgb(218, 67, 97);
+ }
+
+#secondSection {
+    margin-top: 2em;
+    background-color: white;
+    width:100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 1px 1px;
+    grid-template-areas:
+      "h1 h1 "
+      "p p"
+      "icon1 icon2 "
+      "icon3 icon4 ";
+      text-align: center;
+      justify-items: center;
+}
+
+#secondSection .icon {
+    max-width: 8em;
+    padding:2em ;
+}
+
+#secondSection>div {
+    max-width: 200px ;
+}
+
+#secondSection>h1 {
+    grid-area: h1;
+    font-size: xxx-large;
+    color: #ff5c5c;
+}
+
+#secondSection>p {
+    grid-area: p;
+    font-size: x-large;
+}
+
+#thirdSection {
+    margin-top: 8em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#thirdSection >h1 {
+    color: #ff5c5c;
+    font-size: xxx-large;
+}
+
+#thirdSection> table {
+    
+}
+
 
 footer {
     height: 10vh;
