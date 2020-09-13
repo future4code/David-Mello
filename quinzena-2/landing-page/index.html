@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>4CARS - Nosso carro, sua chance</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header> <img id="logo" src="images/4cars cortado.png">
+    <header>
+         <img id="logo" src="images/4cars cortado.png">
          <nav><a class="bold">Inicio</a> <a>Planos</a> <a>Trabalhe Conosco</a> <a>Ajuda</a> <a class="bold">Login</a> <button>Quero Alugar</button>  </nav>
+        <button class="menuButton"><img class="menuIcon" src="images/menu.png"> </button>
     </header>
+    <div id="mobileMenu"> <div><a class="bold">Inicio</a></div> <div><a>Planos</a></div> <div><a>Trabalhe Conosco</a></div> 
+    <div><a>Ajuda</a></div> <div><a class="bold">Login</a></div> <button>Quero Alugar</button>  </div>
    
     <main>
         <section id="firstSection">
@@ -23,41 +28,119 @@
             <p>Nós da 4Cars te proporcionamos a sua nova ferramenta de trabalho.<br><br>
                  Conquiste sua independência, dirija sua vida.</p>
             <div><img class="icon" src="images/handshake.png"><p>Aluguel descomplicado</p></div>
-            <div><img class="icon" src="images/tools.png"><p>Assistencia Automotiva</p></div>
+            <div><img class="icon" src="images/tools.png"><p>Assistência Automotiva</p></div>
             <div><img class="icon" src="images/calculator.png"><p>Melhor custo-benefício</p></div>
             <div><img class="icon" src="images/smartphone.png"><p>Controle na palma da mão</p></div>
 
         </section>
         <section id="thirdSection">
-            <h1>Planos</h1>
-            <table>
-                <tr>
-                    <td>KMs Rodados</td>
-                    <td>Valor</td>
-                </tr>
-                <tr>
-                    <td>100KM</td>
-                    <td>R$200,00</td>
-                </tr>
-                <tr>
-                    <td>De 101 a 500KM</td>
-                    <td>R$300,00</td>
-                </tr>
-                <tr>
-                    <td>Ilimitado</td>
-                    <td>R$500,00</td>
-                </tr>
-            </table>
+        <h1>Planos</h1>
+        <p>Escolha, encaixe no seu orçamento e fique à vontade para mudar quando quiser!</p>
+        <div>
+            <div>
+                <table class="tableDiv">
+                    <h2>Por KM rodado na semana</h2>
+                    <tr>
+                        <td class="firstRow">KMs Rodados</td>
+                        <td class="firstRow">Valor</td>
+                    </tr>
+                    <tr>
+                        <td>100KM</td>
+                        <td>R$200,00</td>
+                    </tr>
+                    <tr>
+                        <td>De 101 a 500KM</td>
+                        <td>R$300,00</td>
+                    </tr>
+                    <tr>
+                        <td>Ilimitado</td>
+                        <td>R$500,00</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="tableDiv">
+                <h2>Por dia</h2>
+                <table>
+                    <tr>
+                        <td class="firstRow">Dias</td>
+                        <td class="firstRow">Valor</td>
+                    </tr>
+                    <tr>
+                        <td>Uma semana</td>
+                        <td>R$200,00 p/ dia</td>
+                    </tr>
+                    <tr>
+                        <td>Mês</td>
+                        <td>R$150,00 p/ dia</td>
+                    </tr>
+                    <tr>
+                        <td>Acima de 3 meses</td>
+                        <td>R$80,00 p/ dia</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
         </section>
 
-        <section>
-        <div class="linhaClassic"><h1>Linha Classic</h1> <p>Carros Populares</p></div>
-        <div class="linhaLux"><h1>Linha Lux</h1> <p>Carros de Luxo</p></div>
+        <section id="fourthSection">
+        <div class="linhaClassic">
+            <div><h2>Linha Classic</h2>
+            <p>Carros Populares</p></div>
+            <img class="carImage" src="images/redsedan.png">
+            <ul>
+                <li>Melhor Preço</li>
+                <li>Alta Disponibilidade</li>
+                <li>Perfeito para viagens do dia a dia</li>
+            </ul>
+        </div>
+        <div class="linhaLux">
+            <div><h2>Linha Lux</h2>
+            <p>Carros de Luxo</p></div>
+            <img class="carImage" src="images/Lux car.png">
+            <ul>
+                <li>Experiência Única</li>
+                <li>Mais Exclusividade</li>
+                <li>Perfeito para eventos e ocasiões especiais</li>
+            </ul>
+        </div>
         </section>
-        
-        <section><h1>Motoristas Satisfeitos</h1></section>
+        <section id="lastSection"><p>NOSSO CARRO,<br> SUA CHANCE.</p></section>
         
     </main>
-    <footer></footer>
+    <footer>
+
+        <img id="footerLogo" src="images/4cars.png">
+
+        <div class="footerDiv" id="endereco"> 
+            <p>R. Pais Leme, 215,<br>
+                Conjunto 820<br>
+                Pinheiros<br>
+                CEP 05424-150</p>
+        </div>
+        
+        <div class="footerDiv" id="redesSociais">
+            <h4>Redes Sociais</h4>
+            <a href="http://youtube.com/" target="blank"><img class="redesIcon" src="images/youtube.png"></a>
+            <a href="https://twitter.com/" target="blank"><img  class="redesIcon" src="images/twitter.png"></a><br>
+            <a href="https://www.facebook.com/" target="blank"><img  class="redesIcon" src="images/facebook-circular-logo.png"></a>
+            <a href="https://www.instagram.com/" target="blank"><img class="redesIcon" src="images/instagram.png"></a>
+        </div>
+
+        <div class="footerDiv" id="sac">
+            <h4>SAC</h4>
+            <p> 0800 000 0000<br>
+                sac@4cars.com.br<br>
+                Atendimento das 9h às 18h (dias úteis)
+            </p>
+        </div>
+        <div class="footerDiv" id="footerMenu">
+            <h4>A Empresa</h4>
+            <a>Quem somos</a><br>
+            <a>Nossos produtos/serviços</a><br>
+            <a>Contato</a><br>
+            <a>Trabalhe conosco</a><br>
+        </div>
+    </footer>
+    <script src="mobileMenu.js"></script>
 </body>
 </html>

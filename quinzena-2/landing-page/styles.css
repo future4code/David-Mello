@@ -1,11 +1,15 @@
 * {
     padding:0;
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Lato', sans-serif;
 }
 
 body {
     height: 100%;
+}
+
+h1 , h2 {
+    font-family: 'Roboto', sans-serif;
 }
 
 header {
@@ -16,6 +20,14 @@ header {
     border-bottom: #ff5c5c solid 2px;
 }
 
+#mobileMenu {
+    display: none;
+    flex-direction: column;
+}
+
+.menuButton {
+    display: none;
+}
 
 nav {
     height: 20vh;
@@ -63,7 +75,7 @@ section {
 
 #firstSection {
     height: 100vh;
-    width: 1200px;
+    max-width: 1200px;
     background-image: url(images/happy-woman-in-red-dress-driving-car-ptypnpt.jpg);
     margin: 4em;
     display: grid;
@@ -111,8 +123,9 @@ section {
 
 #secondSection {
     margin-top: 2em;
-    background-color: white;
+    background-color: #f1faee;
     width:100%;
+    height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -124,18 +137,23 @@ section {
       "icon3 icon4 ";
       text-align: center;
       justify-items: center;
+      
 }
 
 #secondSection .icon {
-    max-width: 8em;
+    max-width: 6em;
     padding:2em ;
 }
 
 #secondSection>div {
     max-width: 200px ;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
 }
 
 #secondSection>h1 {
+    padding: 0.5em 0;
     grid-area: h1;
     font-size: xxx-large;
     color: #ff5c5c;
@@ -147,11 +165,21 @@ section {
 }
 
 #thirdSection {
-    margin-top: 8em;
+    padding-top: 8em;
+    margin-bottom: 2em;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    height: fit-content;
+}
 
+#thirdSection > div {
+    margin-top: 4em;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
 }
 
 #thirdSection >h1 {
@@ -159,11 +187,270 @@ section {
     font-size: xxx-large;
 }
 
-#thirdSection> table {
-    
+#thirdSection>p {
+    grid-area: p;
+    font-size: x-large;
+    padding: 1em;
+}
+
+#thirdSection h2 {
+    padding: 2em;
+}
+
+#thirdSection tr, td {
+   padding: 2em;
+   background-color: #f1faee;
+   font-size: large;
+}
+
+.firstRow {
+    background-color: #ff5c5c;
+    color: white;
+    font-size: larger;
+    border: 2px solid black;
+}
+
+#fourthSection {
+    background-color: #f1faee;
+    margin-top: 2em;
+    padding: 2em 0;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#fourthSection h2 {
+    color: #ff5c5c;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+#fourthSection>div {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#fourthSection>div> div, img , ul {
+    padding: 1em;
+}
+
+.carImage {
+    max-width: 400px;
+    max-height: 200px;
+}
+
+ul {
+    font-family: sans-serif;
+    font-weight: bold;   
+    font-size: larger;
+}
+
+.linhaClassic , .linhaLux {
+    padding-left:2em;
+    border-left: dashed 1px black;
 }
 
 
+#lastSection {
+    width: 100%;
+    background-image: url(images/happy-driver.jpg);
+    background-position: center;
+    font-size: 400%;
+    color: #ff5c5c ;
+    font-weight: 900 ;
+}
+
+#lastSection>p {
+    margin: 2em 0 0 2em;
+    text-shadow: 5px 5px 25px white;
+}
+
 footer {
-    height: 10vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 70% 1fr;
+    gap: 1px 1px;
+    grid-template-areas:
+      "logo logo logo logo"
+      "endereco redes sac empresa";
+    padding: 0 2em;
+}
+
+footer h4 {
+        margin: 1em 0;
+}
+
+.footerDiv {
+    padding: 0 1em;
+}
+
+#footerLogo {
+    grid-area: logo;
+    margin: 0 auto;
+}
+
+#endereco {
+    grid-area: endereco;
+    display: flex;
+    align-items: center;
+    padding-left: 1em;
+    text-align: center;
+}
+
+#redesSociais {
+    grid-area: redes;
+    text-align: center;
+}
+
+#sac {
+    grid-area: sac;
+}
+
+#footerMenu {
+    grid-area: empresa;
+}
+
+.redesIcon {
+    max-width: 20px;
+}
+
+/* celulares */
+
+@media screen and (min-device-width : 320px) and (max-device-width : 426px) {
+
+    body {
+        margin: 0 0.3em;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .menuButton {
+        width: fit-content;
+        display: block;
+        border: none;
+        background-color: white;
+    }
+
+    .menuButton:hover {
+        background-color: #f3b4b4 ;
+    }
+
+    .menuIcon {
+        width: 25%;
+
+    }
+
+    #mobileMenu>button {
+        color: white;
+        background-color: #ff5c5c;
+        font-size: larger;
+        height: 100%;
+        padding: 1em;
+        border: none;
+    }
+    
+    #mobileMenu>button:hover {
+        background-color:#ff3e3e ;
+    } 
+
+    #mobileMenu>div {
+        padding: 1em;
+        font-size: larger;
+        border-bottom: 1px solid #f3b4b4;
+
+    }
+    
+    #mobileMenu>div:hover {
+        background-color: rgb(231, 202, 202);
+    }
+
+    .bold {
+        color: #ff5c5c;
+        font-weight: bold;
+    }
+
+    #firstSection {
+        background-color: white;
+        background-image: none;
+    }
+
+    #firstSection>p {
+        color: black;
+        padding: 1em 0;
+    }
+    
+    #firstSection>button {
+        min-height: 40px; 
+    }
+
+    #secondSection {
+        
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+
+    }
+
+    #secondSection>div {
+        max-width: 100%;
+    }
+
+    #thirdSection {
+        
+    display: flex;
+    flex-direction: column;
+
+    }
+
+    #thirdSection>div {
+    flex-direction: column;
+
+    }
+
+    #thirdSection>p {
+        text-align: center;
+    }
+    
+    #fourthSection {
+        
+    flex-direction: column;
+    height: fit-content;
+
+    }
+
+    .carImage {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .linhaClassic, .linhaLux {
+        border: none;
+    }
+
+    #lastSection {
+        display: none;
+    }
+
+    footer {
+        
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2em;
+    }
+
+    #footerLogo {
+        width: 100%;
+    }
+
+    #endereco {
+        justify-content: center;
+    }
+
+    
 }
