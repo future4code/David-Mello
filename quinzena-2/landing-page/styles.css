@@ -12,6 +12,11 @@ h1 , h2 {
     font-family: 'Roboto', sans-serif;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 header {
     height: 20vh;
     display: flex;
@@ -50,6 +55,11 @@ nav>button {
     padding: 1em;
     border: none;
 }
+
+nav>button:hover {
+    background-color: rgb(218, 67, 97);
+}
+
 
 nav>a {
     padding-left: 1em;
