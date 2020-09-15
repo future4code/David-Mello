@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+  
+}
+
+header {
+    height: 10vh;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+h1 {
+    margin-left: 1em;
+}
+
+input {
+    margin-right: 1em;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "media1 media2 media3 media4"
+    "media5 media6 media7 media8";
+    width: auto;
+    min-height: 100vh;
+    margin: 2em;
+}
+
+.media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    margin: 2em;
+}
+
+ a {
+    height: 80%;
+    width: 100%;
+}
+
+video {
+    height: 100%;
+    width: 100%;
+}
+
+#media1 { grid-area: media1; }
+
+#media2 { grid-area: media2; }
+
+#media3 { grid-area: media3; }
+
+#media4 { grid-area: media4; }
+
+#media5 { grid-area: media5; }
+
+#media6 { grid-area: media6; }
+
+#media7 { grid-area: media7; }
+
+#media8 { grid-area: media8; }
+
+footer {
+    border: 1px solid black;
+    height: 10vh;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+}
+
+/* celulares */
+
+@media screen and (min-device-width : 320px) and (max-device-width : 420px) {
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+    }
