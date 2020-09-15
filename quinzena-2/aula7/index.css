@@ -1,0 +1,130 @@
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+div {
+    border: 1px solid black;
+}
+
+#main-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.flexDivColor {
+    display: flex;
+    border: none;
+    flex-grow: 1;
+}
+
+.flexDivBlack {
+    display: flex;
+    border: none;
+    flex-grow: 3;
+}
+
+.flexDivWhite {
+    display: flex;
+    border: none;
+    flex-grow: 1;
+}
+
+#first-block {
+    background-color: red;
+    width: 100%;
+    border: none;
+    flex-grow: 1;
+    min-height: 72px;
+}
+
+.blue-block {
+    background-color: blue;
+    margin: 12px;
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    min-height: 72px;
+}
+
+.yellow-block {
+    background-color: yellow;
+    margin: 12px;
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    min-height: 72px;
+}
+
+.green-block {
+    background-color: green;
+    margin: 12px;
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    min-height: 72px;
+}
+
+.black-block {
+    background-color: black;
+    color: white;
+    width: 50%;
+    margin: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 128px;
+}
+
+.white-block {
+    background-color: white;
+    margin: 12px;
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    min-height: 72px;
+}
+
+@media screen and (min-device-width : 421px) and (max-device-width : 800px) {
+  
+    #main-container {
+        height: 100%;
+    }
+
+    .flexDivColor, .flexDivWhite {
+        flex-grow: 2;
+        flex-wrap: wrap;
+    }
+    
+    .flexDivBlack {
+        flex-grow: 4;
+    }
+}
+
+@media screen and (min-device-width : 320px) and (max-device-width : 420px) {
+   
+    #main-container {
+        height: 100%;
+    }
+   
+    .flexDivColor , .flexDivWhite , .flexDivBlack {
+        flex-direction: column;
+    }
+
+    .white-block , .green-block , .yellow-block , .blue-block , .black-block{
+        width: auto;
+    }
+
+    }
+    
