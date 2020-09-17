@@ -142,5 +142,36 @@ console.log(kWh*0.05 - (kWh*0.05)*desconto/100);
 // 280*0.05 - (280*0.05)*15/100 = 11.9
 */
 
-//EX 3 
+/*
+EX 3 
 
+
+//a. 
+let kg = 20/2.2046;
+console.log(`20lb equivalem a ${kg} kg`);
+
+//b.
+let kg = 10.5/35.274;
+console.log(`10.5oz equivalem a ${kg} kg`);
+
+//c.
+let metros = 100/0.00062137;
+console.log(`100mi equivalem a ${metros} m`);
+
+//d.
+let metros = 50/3.2808;
+console.log(`50ft equivalem a ${metros} m`);
+
+//e.
+let litro = 103.56/0.26417;
+console.log(`103.56gal equivalem a ${litro} l`);
+
+//f.
+let litro = (450*6)/25;
+console.log(`450 xic equivalem a ${litro} l`);
+*/
+
+//g.
+let xicara = Number(prompt("Digite o valor em Xícaras para converter para Litros"));
+let litro = (xicara*6)/25;
+console.log(`${xicara} xic equivalem a ${litro} l`);
