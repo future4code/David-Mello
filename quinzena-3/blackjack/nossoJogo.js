@@ -11,31 +11,29 @@
  * 
  */
 
- console.log("Bem vindo ao jogo de BlackJack!");
+//  console.log("Bem vindo ao jogo de BlackJack!");
 
- if(confirm("Quer iniciar uma nova rodada?")) {
-   const cartaJogador1 = comprarCarta(); 
-   const cartaJogador2 = comprarCarta();
-   const cartaComputador1 = comprarCarta();  
-   const cartaComputador2 = comprarCarta();
-   // Compra as cartas do jogador e do computador
+//  if(confirm("Quer iniciar uma nova rodada?")) {
+//    let cartasJogador =  [comprarCarta(), comprarCarta()];
+//    let cartasComputador = [comprarCarta(), comprarCarta()];  
+//    // Compra as cartas do jogador e do computador
    
-   const pontuacaoJogador = cartaJogador1.valor + cartaJogador2.valor;
-   const pontuacaoComputador = cartaComputador1.valor + cartaComputador2.valor;
-   //define a pontuação
+//    const pontuacaoJogador = cartasJogador[0].valor + cartasJogador[1].valor;
+//    const pontuacaoComputador = cartasComputador[0].valor + cartasComputador[1].valor;
+//    //define a pontuação
    
-   console.log(`Usuário - cartas: ${cartaJogador1.texto} ${cartaJogador2.texto}  - pontuação ${pontuacaoJogador}`); 
-   console.log(`Computador - cartas: ${cartaComputador1.texto} ${cartaComputador2.texto}  - pontuação ${pontuacaoComputador}`);
-   //imprime pontuação e cartas no console
+//    console.log(`Usuário - cartas: ${cartasJogador[0].texto} ${cartasJogador[1].texto}  - pontuação ${pontuacaoJogador}`); 
+//    console.log(`Computador - cartas: ${cartasComputador[0].texto} ${cartasComputador[1].texto}  - pontuação ${pontuacaoComputador}`);
+//    //imprime pontuação e cartas no console
 
-   if (pontuacaoJogador > pontuacaoComputador) {
-      console.log("O usuário ganhou!");
-   } else if (pontuacaoComputador > pontuacaoJogador) {
-      console.log("O computador ganhou!");
-   } else {
-      console.log("Empate.");
-   } // define e imprime quem ganhou
+//    if (pontuacaoJogador > pontuacaoComputador) {
+//       console.log("O usuário ganhou!");
+//    } else if (pontuacaoComputador > pontuacaoJogador) {
+//       console.log("O computador ganhou!");
+//    } else {
+//       console.log("Empate.");
+//    } // define e imprime quem ganhou
 
-} else {
-	console.log("O jogo acabou.");
-}
+// } else {
+// 	console.log("O jogo acabou.");
+// }
