@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-wrap: break-word;
 }
 
 header {
@@ -9,6 +10,15 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+button {
+    margin-left: 1em;
+    padding: 0.5em;
+    border-radius: 10px;
+    border: none;
+    background-color: black;
+    color: whitesmoke;
 }
 
 section {
@@ -21,4 +31,53 @@ section {
     border: 1px dotted rgb(53, 53, 53);
     width: 14%;
     padding: 5px;
+    height: fit-content;
+}
+
+.semana > h3 {
+    margin-bottom: 0.5em ;
+}
+
+.dia > p {
+    margin-bottom: 0.5em;
+} 
+
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) { 
+    section {
+        flex-direction: column;
+        width: 100vw;
+        justify-content: normal;
+        align-items: center;
+    }
+
+    .semana {
+        width: 100%;
+    }
+
+    header {
+        height: 50vh;
+        flex-direction: column;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1em;
+    }
+    
+    form > input, form > select {
+        margin: 0.5em 0;
+    }
+    
+    form > input {
+        height: 4em;
+        width: 16em;
+    }
+
+    button {
+        margin-top: 0.5em;
+        height: 2.5em;
+    }
 }
