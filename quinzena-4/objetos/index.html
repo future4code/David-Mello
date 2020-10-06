@@ -16,14 +16,15 @@
         <label for="autor-post">Autor:</label>
         <input type="text" id="autor-post">
 
+        <label for="imagem-post">Imagem:</label>
+        <input type="text" id="imagem-post">
+
         <label for="conteudo-post">Conteúdo:</label>
         <textarea id="conteudo-post" cols="30" rows="10"></textarea>
         
-        <button>Criar Post</button>
-    </section>
-
-    <section id="container-de-posts">
-        
+       <a href="posts.html"> 
+         <button onclick="criarObjeto(), adicionarPostNoArray(), salvarNoLocalStorage()">Criar Post</button>
+        </a>
     </section>
 </body>
 </html>
