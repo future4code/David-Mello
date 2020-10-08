@@ -26,7 +26,6 @@ function imprimirExtrato(){
 
     // AQUI VEM A IMPLEMENTAÇÃO
     arrDespesas.forEach((element) => {
-       gastoTotal+= element.valor;
        switch (element.tipo) {
            case 'alimentação':
                gastoAlimentacao += element.valor;
@@ -40,6 +39,10 @@ function imprimirExtrato(){
         }
     });
 
+    //Desafio 03
+    gastoTotal = arrDespesas.reduce((valorTotal, element) => {
+       return valorTotal + element.valor;
+    }, 0);
 
 
     divExtrato.innerHTML = `<p>Extrato: Gasto Total: R$${gastoTotal} | Alimentação: R$${gastoAlimentacao} | 
@@ -90,14 +93,18 @@ function filtrarDespesas(){
     let valorMin = Number(document.getElementById('valorFiltroMin').value)
     let valorMax = Number(document.getElementById('valorFiltroMax').value)
 
-
-    let despesasFiltradas = arrDespesas.filter((element) => {
-        if (element.tipo === tipoFiltro && element.valor >= valorMin && element.valor <= valorMax) {
-            return true;
-        }
-        return false;
-    })
-    // AQUI NESSA VARIÁVEL VEM A IMPLEMENTAÇÃO
+    let despesasFiltradas = [];
+    if (valorMin > 0 && valorMax > 0 && valorMin < valorMax && tipoFiltro !== "") {
+        despesasFiltradas = arrDespesas.filter((element) => {
+            if (element.tipo === tipoFiltro && element.valor >= valorMin && element.valor <= valorMax) {
+                return true;
+            }
+            return false;
+        })
+        // AQUI NESSA VARIÁVEL VEM A IMPLEMENTAÇÃO
+    } else {
+        alert("Por favor preencha todos os campos corretamente!");
+    }
 
     imprimirDespesas(despesasFiltradas)
 }
@@ -105,7 +112,14 @@ function filtrarDespesas(){
 
 
 
-
+//Desafio 02
+const filtroDecrescente = () => {
+    
+    arrDespesas.sort((a,b) => {
+        return b.valor - a.valor;
+    });
+    imprimirDespesas(arrDespesas);
+}
 
 
 // FunÇoes que fazem validaÇoes dos inputs de criaÇao de despesas 
