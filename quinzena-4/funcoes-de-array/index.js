@@ -9,6 +9,9 @@ function imprimirDespesas(despesas){
     divDespesas.innerHTML = '<p><u>Despesas Detalhadas</u></p>'
 
     // AQUI VEM A IMPLEMENTAÇÃO
+    despesas.forEach((element) => {
+        divDespesas.innerHTML += `<p>valor: R$${element.valor} | tipo: ${element.tipo} | descrição: ${element.descricao}</p>`
+    });
 }
 
 
@@ -22,6 +25,22 @@ function imprimirExtrato(){
 
 
     // AQUI VEM A IMPLEMENTAÇÃO
+    arrDespesas.forEach((element) => {
+       gastoTotal+= element.valor;
+       switch (element.tipo) {
+           case 'alimentação':
+               gastoAlimentacao += element.valor;
+               break;
+            case 'utilidades' :
+                gastoUtilidades += element.valor;
+                break;
+            case 'viagem' :
+                gastoViagem += element.valor;
+                break;
+        }
+    });
+
+
 
     divExtrato.innerHTML = `<p>Extrato: Gasto Total: R$${gastoTotal} | Alimentação: R$${gastoAlimentacao} | 
                                         Utilidades: R$${gastoUtilidades} | Viagem: R$${gastoViagem}</p>`
@@ -72,7 +91,13 @@ function filtrarDespesas(){
     let valorMax = Number(document.getElementById('valorFiltroMax').value)
 
 
-    let despesasFiltradas // AQUI NESSA VARIÁVEL VEM A IMPLEMENTAÇÃO
+    let despesasFiltradas = arrDespesas.filter((element) => {
+        if (element.tipo === tipoFiltro && element.valor >= valorMin && element.valor <= valorMax) {
+            return true;
+        }
+        return false;
+    })
+    // AQUI NESSA VARIÁVEL VEM A IMPLEMENTAÇÃO
 
     imprimirDespesas(despesasFiltradas)
 }
