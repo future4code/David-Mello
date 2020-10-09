@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="index.js"></script>
+    <title>Planner</title>
+</head>
+<body>
+    <header>
+        <form action="">
+            <label for="tarefa">Nova tarefa:</label>
+            <input type="text" id="tarefa">
+            <select name="dias-semana" id="dias-semana">
+                <option value="domingo">Domingo</option>
+                <option value="segunda">Segunda-feira</option>
+                <option value="terca">Terça-feira</option>
+                <option value="quarta">Quarta-feira</option>
+                <option value="quinta">Quinta-feira</option>
+                <option value="sexta">Sexta-feira</option>
+                <option value="sabado">Sábado</option>
+            </select>
+            <select name="horas-dia" id="horas-dia">
+                <option value="zero">00H</option>
+                <option value="uma">01H</option>
+                <option value="duas">02H</option>
+                <option value="tres">03H</option>
+                <option value="quatro">04H</option>
+                <option value="cinco">05H</option>
+                <option value="seis">06H</option>
+                <option value="sete">07H</option>
+                <option value="oito">08H</option>
+                <option value="nove">09H</option>
+                <option value="dez">10H</option>
+                <option value="onze">11H</option>
+                <option value="doze">12H</option>
+                <option value="treze">13H</option>
+                <option value="quatorze">14H</option>
+                <option value="quinze">15H</option>
+                <option value="dezesseis">16H</option>
+                <option value="dezessete">17H</option>
+                <option value="dezoito">18H</option>
+                <option value="dezenove">19H</option>
+                <option value="vinte">20H</option>
+                <option value="vinteUm">21H</option>
+                <option value="vinteDois">22H</option>
+                <option value="vinteTres">23H</option>
+
+            </select>
+        </form>
+
+        <button onclick="botaoClicado()">Criar tarefa</button>
+        <button onclick="limparPlanner()">Limpar planner</button>
+        <button id="botaoNoite" onclick="modoNoite()">Modo noite</button>
+        <button id="botaoDia" onclick="modoDia()">Modo dia</button>
+        
+    </header>
+    <section>
+        <div class="semana">
+            <h3>Domingo</h3>
+            <div id="domingo" class="dia">
+                <p> 00H </p>
+                <div class="horaDiv domingo zero"></div>
+                <p> 01H </p>
+                <div class="horaDiv domingo uma"></div>
+                <p> 02H </p>
+                <div class="horaDiv domingo duas"></div>
+                <p> 03H </p>
+                <div class="horaDiv domingo tres"></div>
+                <p> 04H </p>
+                <div class="horaDiv domingo quatro"></div>
+                <p> 05H </p>
+                <div class="horaDiv domingo cinco"></div>
+                <p> 06H </p>
+                <div class="horaDiv domingo seis"></div>
+                <p> 07H </p>
+                <div class="horaDiv domingo sete"></div>
+                <p> 08H </p>
+                <div class="horaDiv domingo oito"></div>
+                <p> 09H </p>
+                <div class="horaDiv domingo nove"></div>
+                <p> 10H </p>
+                <div class="horaDiv domingo dez"></div>
+                <p> 11H </p>
+                <div class="horaDiv domingo onze"></div>
+                <p> 12H </p>
+                <div class="horaDiv domingo doze"></div>
+                <p> 13H </p>
+                <div class="horaDiv domingo treze"></div>
+                <p> 14H </p>
+                <div class="horaDiv domingo quatorze"></div>
+                <p> 15H </p>
+                <div class="horaDiv domingo quinze"></div>
+                <p> 16H </p>
+                <div class="horaDiv domingo dezesseis"></div>
+                <p> 17H </p>
+                <div class="horaDiv domingo dezessete"></div>
+                <p> 18H </p>
+                <div class="horaDiv domingo dezoito"></div>
+                <p> 19H </p>
+                <div class="horaDiv domingo dezenove"></div>
+                <p> 20H </p>
+                <div class="horaDiv domingo vinte"></div>
+                <p> 21H </p>
+                <div class="horaDiv domingo vinteUm"></div>
+                <p> 22H </p>
+                <div class="horaDiv domingo vinteDois"></div>
+                <p> 23H </p>
+                <div class="horaDiv domingo vinteTres"></div>
+            </div>
+        </div>
+
+        <div class="semana">
+            <h3>Segunda-feira</h3>
+            <div id="segunda" class="dia">
+                <p> 00H </p>
+                <div class="horaDiv segunda zero"></div>
+                <p> 01H </p>
+                <div class="horaDiv segunda UTF-8"></div>
+                <p> 02H </p>
+                <div class="horaDiv segunda duas"></div>
+                <p> 03H </p>
+                <div class="horaDiv segunda tres"></div>
+                <p> 04H </p>
+                <div class="horaDiv segunda quatro"></div>
+                <p> 05H </p>
+                <div class="horaDiv segunda cinco"></div>
+                <p> 06H </p>
+                <div class="horaDiv segunda seis"></div>
+                <p> 07H </p>
+                <div class="horaDiv segunda sete"></div>
+                <p> 08H </p>
+                <div class="horaDiv segunda oito"></div>
+                <p> 09H </p>
+                <div class="horaDiv segunda nove"></div>
+                <p> 10H </p>
+                <div class="horaDiv segunda dez"></div>
+                <p> 11H </p>
+                <div class="horaDiv segunda onze"></div>
+                <p> 12H </p>
+                <div class="horaDiv segunda doze"></div>
+                <p> 13H </p>
+                <div class="horaDiv segunda treze"></div>
+                <p> 14H </p>
+                <div class="horaDiv segunda quatorze"></div>
+                <p> 15H </p>
+                <div class="horaDiv segunda quinze "></div>
+                <p> 16H </p>
+                <div class="horaDiv segunda dezesseis"></div>
+                <p> 17H </p>
+                <div class="horaDiv segunda dezessete"></div>
+                <p> 18H </p>
+                <div class="horaDiv segunda dezoito"></div>
+                <p> 19H </p>
+                <div class="horaDiv segunda dezenove"></div>
+                <p> 20H </p>
+                <div class="horaDiv segunda vinte"></div>
+                <p> 21H </p>
+                <div class="horaDiv segunda vinteUm"></div>
+                <p> 22H </p>
+                <div class="horaDiv segunda vinteDois"></div>
+                <p> 23H </p>
+                <div class="horaDiv segunda vinteTres"></div>
+            </div>
+        </div>
+
+        <div class="semana">
+            <h3>Terça-feira</h3>
+            <div id="terca" class="dia">
+                <p> 00H </p>
+                <div class="horaDiv terça zero"></div>
+                <p> 01H </p>
+                <div class="horaDiv terça uma"></div>
+                <p> 02H </p>
+                <div class="horaDiv terça duas"></div>
+                <p> 03H </p>
+                <div class="horaDiv terça tres"></div>
+                <p> 04H </p>
+                <div class="horaDiv terça quatro"></div>
+                <p> 05H </p>
+                <div class="horaDiv terça cinco"></div>
+                <p> 06H </p>
+                <div class="horaDiv terça seis"></div>
+                <p> 07H </p>
+                <div class="horaDiv terça sete"></div>
+                <p> 08H </p>
+                <div class="horaDiv terça oito"></div>
+                <p> 09H </p>
+                <div class="horaDiv terça nove"></div>
+                <p> 10H </p>
+                <div class="horaDiv terça dez"></div>
+                <p> 11H </p>
+                <div class="horaDiv terça onze"></div>
+                <p> 12H </p>
+                <div class="horaDiv terça doze"></div>
+                <p> 13H </p>
+                <div class="horaDiv terça treze"></div>
+                <p> 14H </p>
+                <div class="horaDiv terça quatorze"></div>
+                <p> 15H </p>
+                <div class="horaDiv terça quinze"></div>
+                <p> 16H </p>
+                <div class="horaDiv terça dezesseis"></div>
+                <p> 17H </p>
+                <div class="horaDiv terça dezesseis"></div>
+                <p> 18H </p>
+                <div class="horaDiv terça dezoito"></div>
+                <p> 19H </p>
+                <div class="horaDiv terça dezenove"></div>
+                <p> 20H </p>
+                <div class="horaDiv terça vinte"></div>
+                <p> 21H </p>
+                <div class="horaDiv terça vinteUm"></div>
+                <p> 22H </p>
+                <div class="horaDiv terça vinteDois"></div>
+                <p> 23H </p>
+                <div class="horaDiv terça vinteTres"></div>
+            </div>
+        </div>
+    
+        <div class="semana">
+            <h3>Quarta-feira</h3>
+            <div id="quarta" class="dia">
+                <p> 00H </p>
+                <div class="horaDiv quarta zero"></div>
+                <p> 01H </p>
+                <div class="horaDiv quarta uma"></div>
+                <p> 02H </p>
+                <div class="horaDiv quarta duas"></div>
+                <p> 03H </p>
+                <div class="horaDiv quarta tres"></div>
+                <p> 04H </p>
+                <div class="horaDiv quarta quatro"></div>
+                <p> 05H </p>
+                <div class="horaDiv quarta cinco"></div>
+                <p> 06H </p>
+                <div class="horaDiv quarta seis"></div>
+                <p> 07H </p>
+                <div class="horaDiv quarta sete"></div>
+                <p> 08H </p>
+                <div class="horaDiv quarta oito"></div>
+                <p> 09H </p>
+                <div class="horaDiv quarta nove"></div>
+                <p> 10H </p>
+                <div class="horaDiv quarta dez"></div>
+                <p> 11H </p>
+                <div class="horaDiv quarta onze"></div>
+                <p> 12H </p>
+                <div class="horaDiv quarta doze"></div>
+                <p> 13H </p>
+                <div class="horaDiv quarta treze"></div>
+                <p> 14H </p>
+                <div class="horaDiv quarta quatorze"></div>
+                <p> 15H </p>
+                <div class="horaDiv quarta quinze"></div>
+                <p> 16H </p>
+                <div class="horaDiv quarta dezesseis"></div>
+                <p> 17H </p>
+                <div class="horaDiv quarta dezessete"></div>
+                <p> 18H </p>
+                <div class="horaDiv quarta dezoito"></div>
+                <p> 19H </p>
+                <div class="horaDiv quarta dezenove"></div>
+                <p> 20H </p>
+                <div class="horaDiv quarta vinte"></div>
+                <p> 21H </p>
+                <div class="horaDiv quarta vinteUm"></div>
+                <p> 22H </p>
+                <div class="horaDiv quarta vinteDois"></div>
+                <p> 23H </p>
+                <div class="horaDiv quarta vinteTres"></div>
+            </div>
+        </div>
+    
+        <div class="semana">
+            <h3>Quinta-feira</h3>
+            <div id="quinta" class="dia">
+                <p> 00H </p>
+                <div class="horaDiv quinta zero"></div>
+                <p> 01H </p>
+                <div class="horaDiv quinta uma"></div>
+                <p> 02H </p>
+                <div class="horaDiv quinta duas"></div>
+                <p> 03H </p>
+                <div class="horaDiv quinta tres"></div>
+                <p> 04H </p>
+                <div class="horaDiv quinta quatro"></div>
+                <p> 05H </p>
+                <div class="horaDiv quinta cinco"></div>
+                <p> 06H </p>
+                <div class="horaDiv quinta seis"></div>
+                <p> 07H </p>
+                <div class="horaDiv quinta sete"></div>
+                <p> 08H </p>
+                <div class="horaDiv quinta oito"></div>
+                <p> 09H </p>
+                <div class="horaDiv quinta nove"></div>
+                <p> 10H </p>
+                <div class="horaDiv quinta dez"></div>
+                <p> 11H </p>
+                <div class="horaDiv quinta onze"></div>
+                <p> 12H </p>
+                <div class="horaDiv quinta doze"></div>
+                <p> 13H </p>
+                <div class="horaDiv quinta treze "></div>
+                <p> 14H </p>
+                <div class="horaDiv quinta quatorze"></div>
+                <p> 15H </p>
+                <div class="horaDiv quinta quinze"></div>
+                <p> 16H </p>
+                <div class="horaDiv quinta dezesseis"></div>
+                <p> 17H </p>
+                <div class="horaDiv quinta dezessete"></div>
+                <p> 18H </p>
+                <div class="horaDiv quinta dezoito"></div>
+                <p> 19H </p>
+                <div class="horaDiv quinta dezenove"></div>
+                <p> 20H </p>
+                <div class="horaDiv quinta vinte"></div>
+                <p> 21H </p>
+                <div class="horaDiv quinta vinteUm"></div>
+                <p> 22H </p>
+                <div class="horaDiv quinta vinteDois"></div>
+                <p> 23H </p>
+                <div class="horaDiv quinta vinteTres"></div>
+            </div>
+        </div>
+
+        <div class="semana">                    
+            <h3>Sexta-feira</h3>               
+            <div id="sexta" class="dia">
+                <p> 00H </p>
+                <div class="horaDiv sexta zero"></div>
+                <p> 01H </p>
+                <div class="horaDiv sexta uma"></div>
+                <p> 02H </p>
+                <div class="horaDiv sexta duas"></div>
+                <p> 03H </p>
+                <div class="horaDiv sexta tres"></div>
+                <p> 04H </p>
+                <div class="horaDiv sexta quatro"></div>
+                <p> 05H </p>
+                <div class="horaDiv sexta cinco"></div>
+                <p> 06H </p>
+                <div class="horaDiv sexta seis"></div>
+                <p> 07H </p>
+                <div class="horaDiv sexta sete"></div>
+                <p> 08H </p>
+                <div class="horaDiv sexta oito"></div>
+                <p> 09H </p>
+                <div class="horaDiv sexta nove"></div>
+                <p> 10H </p>
+                <div class="horaDiv sexta dez"></div>
+                <p> 11H </p>
+                <div class="horaDiv sexta onze"></div>
+                <p> 12H </p>
+                <div class="horaDiv sexta doze"></div>
+                <p> 13H </p>
+                <div class="horaDiv sexta treze"></div>
+                <p> 14H </p>
+                <div class="horaDiv sexta quatorze"></div>
+                <p> 15H </p>
+                <div class="horaDiv sexta quinze"></div>
+                <p> 16H </p>
+                <div class="horaDiv sexta dezesseis"></div>
+                <p> 17H </p>
+                <div class="horaDiv sexta dezessete"></div>
+                <p> 18H </p>
+                <div class="horaDiv sexta dezoito"></div>
+                <p> 19H </p>
+                <div class="horaDiv sexta dezenove"></div>
+                <p> 20H </p>
+                <div class="horaDiv sexta vinte"></div>
+                <p> 21H </p>
+                <div class="horaDiv sexta vinteUm"></div>
+                <p> 22H </p>
+                <div class="horaDiv sexta vinteDois"></div>
+                <p> 23H </p>
+                <div class="horaDiv sexta vinteTres"></div>
+            </div>
+        </div>
+
+        <div class="semana">
+            <h3>Sábado</h3>
+            <div id="sabado" class="dia">
+                <p> 00H </p>
+                <div class="horaDiv sabado zero"></div>
+                <p> 01H </p>
+                <div class="horaDiv sabado uma"></div>
+                <p> 02H </p>
+                <div class="horaDiv sabado duas"></div>
+                <p> 03H </p>
+                <div class="horaDiv sabado tres"></div>
+                <p> 04H </p>
+                <div class="horaDiv sabado quatro"></div>
+                <p> 05H </p>
+                <div class="horaDiv sabado cinco"></div>
+                <p> 06H </p>
+                <div class="horaDiv sabado seis"></div>
+                <p> 07H </p>
+                <div class="horaDiv sabado sete"></div>
+                <p> 08H </p>
+                <div class="horaDiv sabado oito"></div>
+                <p> 09H </p>
+                <div class="horaDiv sabado nove"></div>
+                <p> 10H </p>
+                <div class="horaDiv sabado dez"></div>
+                <p> 11H </p>
+                <div class="horaDiv sabado onze"></div>
+                <p> 12H </p>
+                <div class="horaDiv sabado doze"></div>
+                <p> 13H </p>
+                <div class="horaDiv sabado treze"></div>
+                <p> 14H </p>
+                <div class="horaDiv sabado quatorze"></div>
+                <p> 15H </p>
+                <div class="horaDiv sabado quinze"></div>
+                <p> 16H </p>
+                <div class="horaDiv sabado dezesseis"></div>
+                <p> 17H </p>
+                <div class="horaDiv sabado dezessete"></div>
+                <p> 18H </p>
+                <div class="horaDiv sabado dezoito"></div>
+                <p> 19H </p>
+                <div class="horaDiv sabado dezenove"></div>
+                <p> 20H </p>
+                <div class="horaDiv sabado vinte"></div>
+                <p> 21H </p>
+                <div class="horaDiv sabado vinteUm"></div>
+                <p> 22H </p>
+                <div class="horaDiv sabado vinteDois"></div>
+                <p> 23H </p>
+                <div class="horaDiv sabado vinteTres"></div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>
