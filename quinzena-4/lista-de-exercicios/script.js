@@ -87,3 +87,77 @@ const definirTriangulo = ( a, b, c) => {
 }
 
 //
+
+const problemaCinco = (a, b) => {
+   
+   let maior;
+   let menor;
+    if (a > b ) {
+        console.log(`O maior é: ${a}`);
+        maior = a; 
+        menor = b;
+    } else if ( a < b ) {
+        console.log( `O maior é: ${b}`);
+        maior = b;
+        menor = a;
+        
+    } else if ( a - b === 0) { 
+        console.log(`Os números são iguais`);
+
+    }
+//determina o maior
+
+    if (a%b === 0) {
+        console.log(`${a} é divisivel por ${b}`);
+    } else {
+        console.log(`${a} é não divisivel por ${b}`);
+    } //verifica se a é divisivel por b
+
+    if (b%a === 0) {
+        console.log(`${b} é divisivel por ${a}`);
+    } else {
+        console.log(`${b} é não divisivel por ${a}`);
+    } //verifica se b é divisivel por a
+
+    if (maior === undefined || menor === undefined) {
+        console.log(`os números são iguais`);
+    } else {
+    console.log(`A diferença entre eles é ${maior - menor}`);
+    }
+}
+
+// Exercícios de funções 
+// 01
+
+const funcaoUm = (array) => {
+   
+   
+   let ordenado = false;
+   while(!ordenado) {
+       ordenado = true;
+        for(i = 1; i < array.length; i++) {
+            if ( array[i - 1] > array[i]) {
+                ordenado = false;
+                let numeroAnterior = array[i - 1];
+                array[i - 1] = array[i];
+                array[i] = numeroAnterior;
+
+            }
+        }
+    }
+    
+    console.log(array[1], array[array.length-2]);
+}
+
+let array = [1, 2 ,4 ,5 ,3 ,6 , 8 ,10 ,19 , 123 ,4323 ,3 ,1239 ,90, 100000];
+// funcaoUm(array);
+
+//02
+
+const funcaoNãoNomeada = () => {
+    alert("Hello Future4");
+}
+// funcaoNãoNomeada();
+
+//Exercícios de Objetos 
+//01
