@@ -232,57 +232,110 @@
 
 //02
 
-const array = [1, 2, 3, 4, 5, 6];
+// const array = [1, 2, 3, 4, 5, 6];
 
-const vezesDois = (array) => {
-   return array.map(element => {
-        return element*2;
-    })
-}
+// const vezesDois = (array) => {
+//    return array.map(element => {
+//         return element*2;
+//     })
+// }
 
-const vezesTresString = (array) => {
-    return array.map(element => {
-        return (element*3).toString();
-    })
-}
+// const vezesTresString = (array) => {
+//     return array.map(element => {
+//         return (element*3).toString();
+//     })
+// }
 
-const arrayString = (array) => {
-    return array.map(element => {
-        if( element%2 === 0 ){
-            return `${element} é par`;
-        } else { 
-            return `${element} é impar`;
-        }
-    })
-}
+// const arrayString = (array) => {
+//     return array.map(element => {
+//         if( element%2 === 0 ){
+//             return `${element} é par`;
+//         } else { 
+//             return `${element} é impar`;
+//         }
+//     })
+// }
 
 
 //03
-const pessoas = [
-	{ nome: "Paula", idade: 12, altura: 1.8},
-	{ nome: "João", idade: 20, altura: 1.3},
-	{ nome: "Pedro", idade: 15, altura: 1.9},
-	{ nome: "Luciano", idade: 22, altura: 1.8},
-	{ nome: "Artur", idade: 10, altura: 1.2},
-	{ nome: "Soter", idade: 70, altura: 1.9}
-]
+// const pessoas = [
+// 	{ nome: "Paula", idade: 12, altura: 1.8},
+// 	{ nome: "João", idade: 20, altura: 1.3},
+// 	{ nome: "Pedro", idade: 15, altura: 1.9},
+// 	{ nome: "Luciano", idade: 22, altura: 1.8},
+// 	{ nome: "Artur", idade: 10, altura: 1.2},
+// 	{ nome: "Soter", idade: 70, altura: 1.9}
+// ]
 
 // a)
 
-const pessoasPermitidas= (array) => {
-    return array.filter(element => {
-        return element.idade > 14 && element.idade < 60 && element.altura >= 1.5;
-    });
-}
+// const pessoasPermitidas= (array) => {
+//     return array.filter(element => {
+//         return element.idade > 14 && element.idade < 60 && element.altura >= 1.5;
+//     });
+// }
 
 //b)
 
-const pessoasNaoPermitidas = (array) => {
-    return array.filter( element => {
-        return element.idade < 14 || element.idade > 60 || element.altura < 1.5;
-    });
-}
+// const pessoasNaoPermitidas = (array) => {
+//     return array.filter( element => {
+//         return element.idade < 14 || element.idade > 60 || element.altura < 1.5;
+//     });
+// }
 
 //04
 
- 
+//  const consultas = [
+// 	{ nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+// 	{ nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+// 	{ nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+// 	{ nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+// ]
+
+// const fazerArrayDeEmails = (array) => {
+//     return array.map(element => {
+        
+//         let sr;
+//         let lembrar;
+//         if (element.genero === "masculino") {
+//             sr = "Sr.";
+//             lembrar = "lembrá-lo";
+//         } else {
+//              sr = "Sra.";
+//              lembrar = "lembrá-la";
+//         }
+
+//         if (element.cancelada) {
+//             return `Olá, ${ sr } ${ element.nome }. Infelizmente, sua consulta marcada
+//             para o dia ${ element.dataDaConsulta } foi cancelada. Se quiser, pode entrar em 
+//             contato conosco para remarcá-la`;
+//         } else {
+//             return `Olá, ${ sr } ${ element.nome}. Estamos enviando esta mensagem para
+//             ${ lembrar } da sua consulta no dia ${ element.dataDaConsulta }. Por favor, acuse
+//             o recebimento deste e-mail.`
+//         }
+//     });
+// }
+
+//05
+
+// const contas = [
+// 	{ cliente: "João", saldoTotal: 1000, compras: [100, 200, 300] },
+// 	{ cliente: "Paula", saldoTotal: 7500, compras: [200, 1040] },
+// 	{ cliente: "Pedro", saldoTotal: 10000, compras: [5140, 6100, 100, 2000] },
+// 	{ cliente: "Luciano", saldoTotal: 100, compras: [100, 200, 1700] },
+// 	{ cliente: "Artur", saldoTotal: 1800, compras: [200, 300] },
+// 	{ cliente: "Soter", saldoTotal: 1200, compras: [] }
+// ]
+
+// const atualizarSaldoTotal = (array) => {
+//     array.forEach(element => {
+//         element.saldoTotal -= element.compras.reduce((total , element) => {
+//             return total + element;
+//         }, 0);
+//             console.log(element.compras)
+//     })
+// }
+
+// atualizarSaldoTotal(contas);
+
