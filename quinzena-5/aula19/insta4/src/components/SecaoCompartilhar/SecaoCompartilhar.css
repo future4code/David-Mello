@@ -1,0 +1,21 @@
+.share-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.share-container > div {
+    width: 95%;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px;
+    border-top: 1px solid grey;
+}
+
+.share-container img {
+    height: 24px;
+    width: 24px;
+}
+
+.input-compartilhar {
+    width:  95%;
+}
