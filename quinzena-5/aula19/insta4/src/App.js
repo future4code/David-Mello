@@ -86,8 +86,9 @@ class App extends React.Component {
   }
 
   render() {
-    const listaDePosts = this.state.arrayDeInputs.map(element => {
-      return ( <Post
+    const listaDePosts = this.state.arrayDeInputs.map((element, index) => {
+      return ( <Post 
+          key={index}
           nomeUsuario={element.nomeUsuario}
           fotoUsuario={element.fotoUsuario}
           fotoPost={element.fotoPost}
