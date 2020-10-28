@@ -5,6 +5,11 @@
 }
 
 .input-comentario {
-    width: 100%;
+    width: 75%;
+    margin-right: 5px;
+}
+
+.input-usuario {
+    width: 25%;
     margin-right: 5px;
 }
