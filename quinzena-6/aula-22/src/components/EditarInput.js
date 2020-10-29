@@ -12,7 +12,7 @@ export default class EditarInput extends React.Component {
     render() {
         return (
             <EditarDiv>
-                <input onChange={this.props.onChangeEditar} />
+                <input value={this.props.valorEditar} onChange={this.props.onChangeEditar} />
                 <button onClick={this.props.onClickEnviar}>Enviar</button>
             </EditarDiv>
         )

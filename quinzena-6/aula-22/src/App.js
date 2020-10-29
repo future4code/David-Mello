@@ -34,7 +34,9 @@ class App extends React.Component {
       tarefas: [],
       inputValue: '',
       filtro: '',
-      inputValueEditar: ''
+      inputValueEditar: '',
+      filtroNome: "",
+      ordem: "crescente"
     }
 
   componentDidUpdate() {
@@ -80,6 +82,10 @@ class App extends React.Component {
       this.setState({filtro: event.target.value});
   }
 
+  onChangeOrdem = (event) => {
+    this.setState({ordem: event.target.value});
+}
+
   removerTarefa = (id) => {
     this.state.tarefas.map((tarefa, index) => {
       if (tarefa.id === id) {
@@ -91,12 +97,18 @@ class App extends React.Component {
   }
 
   editarTarefa = (id) => {
+    let texto = "";
     this.state.tarefas.map(tarefa => {
       if (id === tarefa.id) {
        tarefa.editar = !tarefa.editar;
+       texto = tarefa.texto
       }
-      this.setState({tarefas: this.state.tarefas})
+      if (tarefa.editar === true && tarefa.id !== id) {
+        tarefa.editar = false;
+      }
     })
+    this.setState({tarefas: this.state.tarefas,
+      inputValueEditar: texto})
   }
 
   onChangeEditar = (event) => {
@@ -124,6 +136,10 @@ class App extends React.Component {
     this.setState({tarefas: []})
   }
 
+  onChangeFiltroNome = (event) => {
+    this.setState({filtroNome: event.target.value});
+  }
+
   render() {
     const listaFiltrada = this.state.tarefas.filter(tarefa => {
       switch (this.state.filtro) {
@@ -133,6 +149,33 @@ class App extends React.Component {
           return tarefa.completa
         default:
           return true
+      }
+    })
+
+    const listaFiltroNome = listaFiltrada.filter(tarefa => {
+      if (this.state.filtroNome === "") {
+        return tarefa
+      }else if ( tarefa.texto.includes(this.state.filtroNome) && this.state.filtroNome !== "") {
+        return tarefa
+      } else {
+        return null
+      }
+
+    })
+
+    const listaOrdenada = listaFiltroNome.sort((a, b) => {
+      if(this.state.ordem === "crescente") {
+          if(a.texto < b.texto) {
+            return -1; 
+          } else if(a.texto > b.texto) { 
+            return 1; }
+          return 0;
+      } else if ( this.state.ordem === "decrescente") {
+        if(a.texto < b.texto) { 
+          return 1; 
+        } else if(a.texto > b.texto) { 
+          return -1; }
+        return 0;
       }
     })
 
@@ -167,6 +210,7 @@ class App extends React.Component {
           <input value={this.state.inputValue} onChange={this.onChangeInput}/>
           <button onClick={this.criaTarefa}>Adicionar</button>
         </InputsContainer>
+        <br/>
         <button onClick={this.limparTarefas}>Limpar Tarefas</button>
         <br/>
 
@@ -177,10 +221,21 @@ class App extends React.Component {
             <option value="pendentes">Pendentes</option>
             <option value="completas">Completas</option>
           </select>
+          <label>Ordem</label>
+          <select value={this.state.ordem}
+           onChange={this.onChangeOrdem}>
+            <option value="crescente">A a Z</option>
+            <option value="decrescente">Z a A</option>
+          </select>
+          <label>Busca</label>
+          <input
+          value={this.state.filtroNome}
+          onChange={this.onChangeFiltroNome}
+          ></input>
         </InputsContainer>
         <TarefaList>
-          {listaFiltrada.map(tarefa => {
-            return (
+         {listaOrdenada.map(tarefa => {
+             return (
               <div>
               <Tarefa
                 completa={tarefa.completa}
@@ -188,7 +243,7 @@ class App extends React.Component {
               >
                 {tarefa.texto}
               </Tarefa>
-              {tarefa.editar === true ? <EditarInput onChangeEditar={this.onChangeEditar} onClickEnviar={() => this.onClickEnviar(tarefa.id)}/> : null}
+              {tarefa.editar === true ? <EditarInput valorEditar={this.state.inputValueEditar} onChangeEditar={this.onChangeEditar} onClickEnviar={() => this.onClickEnviar(tarefa.id)}/> : null}
               <button onClick={() => this.removerTarefa(tarefa.id)}>Remover</button>
               <button onClick={() => this.editarTarefa(tarefa.id)}>Editar Tarefa</button>
               </div>
