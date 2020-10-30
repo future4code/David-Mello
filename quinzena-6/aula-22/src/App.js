@@ -29,7 +29,7 @@ const VisualizadorSeparado = styled.div `
   width: 100%;
 `
 
-class App extends React.Component {
+export default class App extends React.Component {
     state = {
       tarefas: [],
       inputValue: '',
@@ -49,7 +49,7 @@ class App extends React.Component {
     const tarefasString = localStorage.getItem("tarefas");
     const tarefasArray = JSON.parse(tarefasString)
 
-    this.setState({tarefas: tarefasArray})
+    if (tarefasArray) {this.setState({tarefas: tarefasArray})}
   };
 
   onChangeInput = (event) => {
@@ -70,11 +70,11 @@ class App extends React.Component {
   }
 
   selectTarefa = (id) => {
-    this.state.tarefas.map(tarefa => {
+   return this.state.tarefas.map(tarefa => {
       if (id === tarefa.id) {
        tarefa.completa = true;
       }
-      this.setState({tarefas: this.state.tarefas})
+      return this.setState({tarefas: this.state.tarefas})
     })
   }
 
@@ -88,12 +88,13 @@ class App extends React.Component {
 
   removerTarefa = (id) => {
     this.state.tarefas.map((tarefa, index) => {
-      if (tarefa.id === id) {
-          this.state.tarefas.splice(index,1);
+     if (tarefa.id === id) {
+        this.state.tarefas.splice(index,1);
       }
+      return  this.setState({tarefas: this.state.tarefas})
     });
 
-    this.setState({tarefas: this.state.tarefas})
+  
   }
 
   editarTarefa = (id) => {
@@ -106,9 +107,10 @@ class App extends React.Component {
       if (tarefa.editar === true && tarefa.id !== id) {
         tarefa.editar = false;
       }
+     return this.setState({tarefas: this.state.tarefas,
+        inputValueEditar: texto})
     })
-    this.setState({tarefas: this.state.tarefas,
-      inputValueEditar: texto})
+    
   }
 
   onChangeEditar = (event) => {
@@ -125,7 +127,7 @@ class App extends React.Component {
         alert("Por favor digite algo")
       }
 
-      this.setState({tarefas: this.state.tarefas,
+      return this.setState({tarefas: this.state.tarefas,
                       inputValueEditar: ''
                     })
     })
@@ -164,7 +166,7 @@ class App extends React.Component {
     })
 
     const listaOrdenada = listaFiltroNome.sort((a, b) => {
-      if(this.state.ordem === "crescente") {
+     if(this.state.ordem === "crescente") {
           if(a.texto < b.texto) {
             return -1; 
           } else if(a.texto > b.texto) { 
@@ -177,6 +179,7 @@ class App extends React.Component {
           return -1; }
         return 0;
       }
+      return 0
     })
 
     const listaPendentes = this.state.tarefas.filter(tarefa => {
@@ -236,7 +239,7 @@ class App extends React.Component {
         <TarefaList>
          {listaOrdenada.map(tarefa => {
              return (
-              <div>
+              <div key={tarefa.id}>
               <Tarefa
                 completa={tarefa.completa}
                 onClick={() => this.selectTarefa(tarefa.id)}
@@ -255,7 +258,7 @@ class App extends React.Component {
           <h3>Pendentes</h3>
             {listaPendentes.map(tarefa => {
               return (
-                <div>
+                <div key={tarefa.id}>
                 <Tarefa
                   completa={tarefa.completa}
                   onClick={() => this.selectTarefa(tarefa.id)}
@@ -271,7 +274,7 @@ class App extends React.Component {
             <h3>Completas</h3>
             {listaCompletas.map(tarefa => {
               return (
-                <div>
+                <div key={tarefa.id}> 
                 <Tarefa
                   completa={tarefa.completa}
                   onClick={() => this.selectTarefa(tarefa.id)}
@@ -290,4 +293,4 @@ class App extends React.Component {
   }
 }
 
-export default App
+
