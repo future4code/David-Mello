@@ -6,7 +6,8 @@ import PlaylistCard from '../PlaylistCard/PlaylistCard.js'
 export default class Playlists extends React.Component {
 
     state={
-        list: this.props.list
+        list: this.props.list,
+        teste: this.props.teste
     }
 
     onClickX = async (element) => {
@@ -29,9 +30,18 @@ export default class Playlists extends React.Component {
         })
 
         this.setState({list: updatedList})
+        console.log(updatedList)
     }
 
+    componentDidUpdate() {
+        if (this.state.list !== this.props.list) {
+            this.setState({list: this.props.list})
+        }   
+    }
+
+
     render() {
+        console.log(this.state.list, this.props.list, this.state.teste)   
         return (
             <div>
                 <h2>Playlists</h2>
@@ -39,7 +49,8 @@ export default class Playlists extends React.Component {
                     return <PlaylistCard
                             playlistName={element.name}
                             key={element.id}
-                            onClickX={() => this.onClickX(element)}/>
+                            onClickX={() => this.onClickX(element)}
+                            />
                 })}
             </div>
         )

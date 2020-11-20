@@ -5,7 +5,7 @@ import NewPlaylistComponent from './Components/NewPlaylistComponent/NewPlaylistC
 import Playlists from './Components/Playlists/Playlists.js'
 
 export default class App extends Component {
-
+ 
   state = {
     inputValue: '',
     errorMessage: '',
@@ -73,7 +73,8 @@ export default class App extends Component {
         <div>
           <Playlists 
           list={this.state.list}
-          updatePlaylists={this.getAllPlaylists}/>
+          teste={"teste"}
+          />
         </div>
       </div>
     )
