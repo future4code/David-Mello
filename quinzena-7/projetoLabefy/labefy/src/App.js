@@ -71,7 +71,9 @@ export default class App extends Component {
           onChangeInput={this.onChangeInput}
           inputValue={this.state.inputValue}/>
         <div>
-          <Playlists list={this.state.list}/>
+          <Playlists 
+          list={this.state.list}
+          updatePlaylists={this.getAllPlaylists}/>
         </div>
       </div>
     )
