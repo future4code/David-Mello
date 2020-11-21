@@ -3,6 +3,11 @@ import styled from 'styled-components'
 import React from 'react'
 import PlaylistCard from '../PlaylistCard/PlaylistCard.js'
 
+const PlaylistsDiv = styled.div `
+    width: 100vw;
+    text-align: center;
+`
+
 export default class Playlists extends React.Component {
 
     state={
@@ -19,7 +24,7 @@ export default class Playlists extends React.Component {
 
     render() {
         return (
-            <div>
+            <PlaylistsDiv>
                 <h2>Playlists</h2>
                 {this.state.list.map(element => {
                     return <PlaylistCard
@@ -29,7 +34,7 @@ export default class Playlists extends React.Component {
                             onClickX={() => this.props.onClickX(element)}
                             />
                 })}
-            </div>
+            </PlaylistsDiv>
         )
     }
 }

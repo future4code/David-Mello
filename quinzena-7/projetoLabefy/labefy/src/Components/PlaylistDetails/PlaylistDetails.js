@@ -21,7 +21,13 @@ const MusicDiv = styled.div `
    .trackName{
        width:15%;
    }
+
+
 `
+const AddMusicButton = styled.button `
+    margin: 16px;
+`
+
 const EmptyPlaylist = styled.p `
     font-weight: bold;
     text-align:center;
@@ -45,7 +51,6 @@ export default class PlaylistDetails extends Component {
                 }
             })
             this.setState({tracks: response.data.result.tracks})
-            console.log(response.data.result.tracks)
         } catch(error){
             console.log(error.response.data)
         }
@@ -73,8 +78,11 @@ export default class PlaylistDetails extends Component {
                                 <p className={"artist"}>{element.artist}</p>
                             </MusicDiv>)
                 })}
-                <button onClick={this.onClickAdd}>Adicionar Música</button>
-                {this.state.add? <AddMusicComponent playlistId={this.props.playlistId}/>: null}
+                <AddMusicButton onClick={this.onClickAdd}>Adicionar Música</AddMusicButton>
+                {this.state.add? <AddMusicComponent
+                playlistId={this.props.playlistId}
+                getPlaylistTracks={this.getPlaylistTracks}
+                 />: null}
                 
             </div>
         )

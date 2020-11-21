@@ -4,12 +4,20 @@ import axios from 'axios'
 import NewPlaylistComponent from './Components/NewPlaylistComponent/NewPlaylistComponent'
 import Playlists from './Components/Playlists/Playlists.js'
 
+const AppDiv = styled.div ` 
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  width: 100%;
+`
+
 export default class App extends Component {
  
   state = {
     inputValue: '',
     errorMessage: '',
-    list: []
+    list: [],
+    newPlaylistComponent: false
   }
 
   componentDidMount() {
@@ -19,7 +27,6 @@ export default class App extends Component {
   onChangeInput = (event) => {
       this.setState({inputValue: event.target.value,
           errorMessage: ''})
-      console.log(this.state.inputValue)
   }
 
   onClickButton = () =>{
@@ -39,7 +46,6 @@ export default class App extends Component {
                   }
               }) 
               this.getAllPlaylists()
-              console.log(response.data)
       }  catch(error) {
           console.log(error.response.data.message)
           this.setState({errorMessage: error.response.data.message})
@@ -69,27 +75,31 @@ export default class App extends Component {
             }
         })
         this.setState({list: response.data.result.list})
-        {console.log("passouaqui")}
     } catch(error) {
         console.log(error.reponse)
     }
   }
 
+  onClickOpenNewPlaylist = () => {
+    this.setState({newPlaylistComponent: !this.state.newPlaylistComponent})
+  }
+
   render() {
     return (
-      <div>
-        <NewPlaylistComponent 
+      <AppDiv>
+        <header><h1>Labefy</h1> <button onClick={this.onClickOpenNewPlaylist}>Nova Playlist</button></header>
+        { this.state.newPlaylistComponent? <NewPlaylistComponent className={"newPlaylistComponent"}
           onClickButton={this.onClickButton}
           errorMessage={this.state.errorMessage}
           onChangeInput={this.onChangeInput}
-          inputValue={this.state.inputValue}/>
+          inputValue={this.state.inputValue}/> : ""}
         <div>
-          <Playlists 
+          <Playlists
           list={this.state.list}
           onClickX={(element) => this.onClickRemovePlaylist(element)}
           />
         </div>
-      </div>
+      </AppDiv>
     )
   }
 }
