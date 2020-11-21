@@ -3,6 +3,7 @@ import axios from 'axios'
 import styled from 'styled-components'
 import dropDown from '../../img/drop-down-arrow.svg'
 import dropUp from '../../img/drop-up-arrow.svg'
+import PlaylistDetails from '../PlaylistDetails/PlaylistDetails'
 
 const PlaylistDiv = styled.div `
     display: flex;
@@ -18,15 +19,24 @@ const PlaylistDiv = styled.div `
 `
 
 export default class PlaylistCard extends Component {
+    state={
+        open: false
+    }
 
+onClickCard = () => {
+    this.setState({open: !this.state.open})
+}
     
     render() {
         return (
-            <PlaylistDiv>
-                {/* <img className={"arrowIcon"} src={this.state.open ? dropUp : dropDown}></img> */}
+            <div>
+            <PlaylistDiv onClick={this.onClickCard}>
+                <img className={"arrowIcon"} src={this.state.open ? dropUp : dropDown}></img>
             <p>{this.props.playlistName}</p>
             <button onClick={this.props.onClickX}>X</button>
             </PlaylistDiv>
+            {this.state.open ? <PlaylistDetails playlistId={this.props.playlistId}></PlaylistDetails> : null}
+            </div>
         )
     }
 }

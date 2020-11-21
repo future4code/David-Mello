@@ -48,6 +48,7 @@ export default class Playlists extends React.Component {
                 {this.state.list.map(element => {
                     return <PlaylistCard
                             playlistName={element.name}
+                            playlistId={element.id}
                             key={element.id}
                             onClickX={() => this.onClickX(element)}
                             />
