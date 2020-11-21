@@ -1,6 +1,7 @@
 import axios from 'axios'
 import styled from 'styled-components'
 import React, { Component } from 'react'
+import AddMusicComponent from '../AddMusicComponent/AddMusicComponent'
 
 const MusicDiv = styled.div ` 
     display: flex;
@@ -29,7 +30,8 @@ const EmptyPlaylist = styled.p `
 
 export default class PlaylistDetails extends Component {
     state = {
-        tracks: []
+        tracks: [],
+        add: false
     }
     componentDidMount() {
         this.getPlaylistTracks(this.props.playlistId)
@@ -45,9 +47,13 @@ export default class PlaylistDetails extends Component {
             this.setState({tracks: response.data.result.tracks})
             console.log(response.data.result.tracks)
         } catch(error){
-
+            console.log(error.response.data)
         }
 
+    }
+
+    onClickAdd = () => {
+        this.setState({add: !this.state.add})
     }
 
     render() {
@@ -67,7 +73,9 @@ export default class PlaylistDetails extends Component {
                                 <p className={"artist"}>{element.artist}</p>
                             </MusicDiv>)
                 })}
-                <h5>Nova Música:</h5>
+                <button onClick={this.onClickAdd}>Adicionar Música</button>
+                {this.state.add? <AddMusicComponent playlistId={this.props.playlistId}/>: null}
+                
             </div>
         )
     }

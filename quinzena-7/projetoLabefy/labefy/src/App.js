@@ -25,7 +25,6 @@ export default class App extends Component {
   onClickButton = () =>{
       this.createPlaylist(this.state.inputValue)
       this.setState({inputValue: ''})
-      this.getAllPlaylists()
   }
 
   createPlaylist = async (playlistName) => {
@@ -39,13 +38,28 @@ export default class App extends Component {
                       Authorization: "david-mello-tang"
                   }
               }) 
-
+              this.getAllPlaylists()
               console.log(response.data)
       }  catch(error) {
           console.log(error.response.data.message)
           this.setState({errorMessage: error.response.data.message})
       }
   }
+
+  onClickRemovePlaylist = async (element) => {
+    console.log(element)
+    try {
+        const response = await axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${element.id}`, {
+            headers : {
+                Authorization: "david-mello-tang"
+            }
+        })
+    } catch(error) {
+        console.log(error.response.data)
+    }
+
+    this.getAllPlaylists()
+}
 
   getAllPlaylists = async () =>  {
     try { 
@@ -54,9 +68,8 @@ export default class App extends Component {
             Authorization: "david-mello-tang"
             }
         })
-        console.log(response.data)
-
         this.setState({list: response.data.result.list})
+        {console.log("passouaqui")}
     } catch(error) {
         console.log(error.reponse)
     }
@@ -73,7 +86,7 @@ export default class App extends Component {
         <div>
           <Playlists 
           list={this.state.list}
-          teste={"teste"}
+          onClickX={(element) => this.onClickRemovePlaylist(element)}
           />
         </div>
       </div>

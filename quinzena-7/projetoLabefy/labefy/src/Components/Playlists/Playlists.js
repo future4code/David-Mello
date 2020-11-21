@@ -6,32 +6,9 @@ import PlaylistCard from '../PlaylistCard/PlaylistCard.js'
 export default class Playlists extends React.Component {
 
     state={
-        list: this.props.list,
-        teste: this.props.teste
+        list: this.props.list
     }
 
-    onClickX = async (element) => {
-        try {
-            const response = await axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${element.id}`, {
-                headers : {
-                    Authorization: "david-mello-tang"
-                }
-            })
-            console.log(response.data)
-            this.updatePlaylists(element.id)
-        } catch(error) {
-            console.log(error.response.data)
-        }
-    }
-
-    updatePlaylists = (id) => {
-      const updatedList = this.state.list.filter(element => {
-            return element.id !== id ? element : null
-        })
-
-        this.setState({list: updatedList})
-        console.log(updatedList)
-    }
 
     componentDidUpdate() {
         if (this.state.list !== this.props.list) {
@@ -41,7 +18,6 @@ export default class Playlists extends React.Component {
 
 
     render() {
-        console.log(this.state.list, this.props.list, this.state.teste)   
         return (
             <div>
                 <h2>Playlists</h2>
@@ -50,7 +26,7 @@ export default class Playlists extends React.Component {
                             playlistName={element.name}
                             playlistId={element.id}
                             key={element.id}
-                            onClickX={() => this.onClickX(element)}
+                            onClickX={() => this.props.onClickX(element)}
                             />
                 })}
             </div>
