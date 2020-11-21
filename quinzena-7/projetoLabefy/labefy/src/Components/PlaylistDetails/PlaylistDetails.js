@@ -8,7 +8,13 @@ const MusicDiv = styled.div `
     align-items: center;
     justify-content: space-between;
     padding: 0 100px;
-   
+    @media(max-width: 425px) {
+    
+        padding: 0;
+        width: 90%;
+    
+   }
+
    audio {
        width: 70%;
    }
@@ -72,7 +78,7 @@ export default class PlaylistDetails extends Component {
                 </MusicDiv>
                 {!this.state.tracks[0]? <EmptyPlaylist>Adicione uma música na sua playlist para vê-la aqui!</EmptyPlaylist> :
                 this.state.tracks.map(element => {
-                    return  (<MusicDiv>
+                    return  (<MusicDiv key={element.id}>
                                 <p className={"trackName"}>{element.name}</p>
                     <audio controls><source src={element.url}/></audio>
                                 <p className={"artist"}>{element.artist}</p>

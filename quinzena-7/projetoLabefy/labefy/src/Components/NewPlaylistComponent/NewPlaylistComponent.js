@@ -1,4 +1,3 @@
-import axios from 'axios'
 import styled from 'styled-components'
 import React, { Component } from 'react'
 
@@ -17,7 +16,7 @@ const NewPlaylistDiv = styled.div `
     input {
         margin: 8px;
     }
-    
+
     button {
         width: 50%
     }
@@ -32,7 +31,7 @@ export default class NewPlaylistComponent extends Component {
                 <h2>Nova Playlist</h2>
                 <ErrorMessage>{this.props.errorMessage !== '' ? this.props.errorMessage : '' }</ErrorMessage>
                 <div>
-                    <label for={"nome"}>Nome:</label>
+                    <label htmlFor={"nome"}>Nome:</label>
                     <input id={"nome"} type="text" value={this.props.inputValue} onChange={this.props.onChangeInput} />
                     <button onClick={this.props.onClickButton}>Criar</button>
                 </div>

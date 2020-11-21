@@ -7,6 +7,19 @@ const FormDiv = styled.div `
     display:flex;
     justify-content:space-around;
     margin: 8px 0;
+
+    @media(max-width: 425px) {
+        flex-direction: column;
+        div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input{
+            margin: 16px 0;
+        }
+    }
 `
 
 
@@ -66,16 +79,16 @@ export default class AddMusicComponent extends Component {
         return (
             <FormDiv>
                 <div>
-                    <label for={"title"}>Título:</label>
-                    <input type="text" id={"title"} onChange={this.onChangeTitle} value={this.state.title}/>
+                    <label htmlFor={`title${this.props.playlistId}`}>Título:</label>
+                    <input type="text" id={`title${this.props.playlistId}`} onChange={this.onChangeTitle} value={this.state.title}/>
                 </div>
                 <div>
-                    <label for={"artist"}>Artista:</label>
-                    <input type="text" id={"artist"} onChange={this.onChangeArtist} value={this.state.artist}/>
+                    <label htmlFor={`artist${this.props.playlistId}`}>Artista:</label>
+                    <input type="text" id={`artist${this.props.playlistId}`} onChange={this.onChangeArtist} value={this.state.artist}/>
                 </div>
                 <div>
-                    <label for={"audio"}>Link para o Arquivo de Áudio:</label>
-                    <input type="text" id={"audio"} onChange={this.onChangeAudio} value={this.state.audio}/>
+                    <label htmlFor={`audio${this.props.playlistId}`}>Link para o Arquivo de Áudio:</label>
+                    <input type="text" id={`audio${this.props.playlistId}`} onChange={this.onChangeAudio} value={this.state.audio}/>
                 </div>
                 <div><button onClick={this.onClickButton}>+</button></div>
             </FormDiv>

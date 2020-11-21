@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import styled from 'styled-components'
 import dropDown from '../../img/drop-down-arrow.svg'
 import dropUp from '../../img/drop-up-arrow.svg'
@@ -31,7 +30,7 @@ onClickCard = () => {
         return (
             <div>
             <PlaylistDiv onClick={this.onClickCard}>
-                <img className={"arrowIcon"} src={this.state.open ? dropUp : dropDown}></img>
+                <img className={"arrowIcon"} alt={"arrowIcon"} src={this.state.open ? dropUp : dropDown}></img>
             <p>{this.props.playlistName}</p>
             <button onClick={this.props.onClickX}>X</button>
             </PlaylistDiv>
