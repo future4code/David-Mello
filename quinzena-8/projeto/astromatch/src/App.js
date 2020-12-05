@@ -64,7 +64,19 @@ function App() {
     setMatchesPage(!matchesPage)
   }
 
+  const clear = async () => {
+    try {
+      const response = await axios.put('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/davidMelloTang/clear',{headers: {'Content-Type': 'application/json'}})
+    } catch(error) {
+      console.log(error.response.data)
+    }
+  }
+
+  const deleteData = () => {
+    clear()
+  }
   
+
   return (
     <div className={classes.root}>
       <div className={classes.astromatch}>
@@ -94,6 +106,7 @@ function App() {
       </div>
 
       <Button 
+       onClick={deleteData}
        variant="contained" 
        size="small" 
        className={classes.deleteDataButton}>

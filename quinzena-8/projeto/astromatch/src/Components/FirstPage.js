@@ -5,6 +5,9 @@ import NotInterested from '@material-ui/icons/NotInterested'
 import Button from '@material-ui/core/Button'
 import { Card, CardContent} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import clsx from 'clsx'
+import Loading from './Loading'
+
 
 const useStyles = makeStyles({
   card: {
@@ -14,6 +17,14 @@ const useStyles = makeStyles({
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
+  },
+  rotateout2brcw: {
+    '-webkit-animation': 'rotate-out-2-br-cw 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
+            animation: 'rotate-out-2-br-cw 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
+  },
+  rotateout2blccw: {
+    '-webkit-animation': 'rotate-out-2-bl-ccw 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
+            animation: 'rotate-out-2-bl-ccw 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
   },
   image: {
     width: "100%",
@@ -44,7 +55,7 @@ const useStyles = makeStyles({
     width: '80%',
   },
   buttonsDiv: {
-    marginTop: 8,
+    marginTop: 16,
     width: '100%',
     display: 'flex',
     justifyContent: 'space-around'
@@ -57,6 +68,42 @@ const useStyles = makeStyles({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  "@global": {
+    '@keyframes rotate-out-2-br-cw': {
+      '0%': {
+        '-webkit-transform': 'rotate(0)',
+                'transform': 'rotate(0)',
+        '-webkit-transform-origin': '100% 100%',
+                'transform-origin': '100% 100%',
+        'opacity': 1,
+      },
+      '100%': {
+        '-webkit-transform': 'rotate(45deg)',
+                'transform': 'rotate(45deg)',
+        '-webkit-transform-origin': '100% 100%',
+                'transform-origin': '100% 100%',
+        'opacity': 0,
+      },
+    },
+    '@keyframes rotate-out-2-bl-ccw': {
+      '0%': {
+        '-webkit-transform': 'rotate(0)',
+                'transform': 'rotate(0)',
+        '-webkit-transform-origin': '0 100%',
+                'transform-origin': '0 100%',
+        'opacity': 1,
+      },
+      '100%': {
+        '-webkit-transform': 'rotate(-45deg)',
+                'transform': 'rotate(-45deg)',
+        '-webkit-transform-origin': '0 100%',
+                'transform-origin': '0 100%',
+        'opacity': 0,
+      }
+    }
+    
+}
+
 });
 
 
@@ -64,6 +111,9 @@ const useStyles = makeStyles({
 export default function FirstPage(props) {
     const classes = useStyles();
     const [profile, setProfile] = useState({});
+    const [like, setLike] = useState(false);
+    const [dislike, setDislike] = useState(false);
+    const [loading, setLoading] = useState(true)
     
     useEffect(() => {
         getProfileToChoose()
@@ -74,8 +124,11 @@ export default function FirstPage(props) {
             try {
                 const response = await axios.get('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/davidMelloTang/person')
                 setProfile(response.data.profile)
+                setLike(false)
+                setDislike(false)
+                setLoading(false)
             } catch (error) {
-                console.log(error.response.message)
+                console.log(error.response)
             }
         
     }
@@ -90,18 +143,28 @@ export default function FirstPage(props) {
              {headers: {'Content-Type': 'application/json'}}
             )
         } catch(error) {
-            console.log(error.response.message)
+            console.log(error.response)
         }
     }
 
     const onClickFavoriteButton = () => {
         choosePerson()
+        setLike(true)
+        setLoading(true)
+        getProfileToChoose()
+    }
+
+    const onClickDislikeButton = () => {
+        setDislike(true)
+        setLoading(true)
         getProfileToChoose()
     }
 
     return (
         <div className={classes.firstPage}>
-            <Card className={classes.card}>
+           
+           {loading? <Loading/> :
+            profile ?  <Card className={clsx(classes.card, like ? classes.rotateout2brcw : null, dislike ? classes.rotateout2blccw : null)}>
                 <div style={{backgroundImage: `url(${profile.photo})`}} className={classes.cardBackground}></div>
                 <img className={classes.image} src={profile.photo}/>
                 <CardContent className={classes.cardContent}>
@@ -112,22 +175,23 @@ export default function FirstPage(props) {
                 <p className={classes.bio}>{profile.bio}</p>
                 </CardContent>
           </Card>
+          : <Card className={classes.card} style={'justify-content: center'}><p>Você já viu todos os perfis na sua área</p></Card>}
           
-          <div className={classes.buttonsDiv}>
+
+        {loading ? <div/> : <div className={classes.buttonsDiv}>
             <Button 
             variant="contained" 
             color="secondary"
-            onClick={getProfileToChoose}>
+            onClick={onClickDislikeButton}>
               <NotInterested />
             </Button>
             <Button 
             variant="contained" 
-            color="primary"
+            style={{backgroundColor: '#00c853', color: 'white'}}
             onClick={onClickFavoriteButton}>
               <Favorite />
             </Button>
-          </div>
-
+          </div>}
         </div>
     )
 }
