@@ -1,13 +1,12 @@
-import axios from 'axios';
 import {useState} from 'react'
 import FirstPage from './Components/FirstPage'
 import MatchesPage from './Components/MatchesPage'
 import HeaderButton from './Components/HeaderButton'
 import HowToReg from '@material-ui/icons/HowToReg'
 import PersonAdd from '@material-ui/icons/PersonAdd'
-import Button from '@material-ui/core/Button'
 import {Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import DeleteDataButton from './Components/DeleteDataButton';
 
 const useStyles = makeStyles({
   root:{
@@ -48,12 +47,6 @@ const useStyles = makeStyles({
     width: '100%',
     height: '100%',
   },
-  deleteDataButton: {
-    position: 'absolute',
-    right: 8,
-    bottom: 8,
-    cursor: 'pointer',
-  },
 });
 
 function App() {
@@ -62,18 +55,6 @@ function App() {
 
   const onClickMatchesPage = () => {
     setMatchesPage(!matchesPage)
-  }
-
-  const clear = async () => {
-    try {
-      const response = await axios.put('https://us-central1-missao-newton.cloudfunctions.net/astroMatch/davidMelloTang/clear',{headers: {'Content-Type': 'application/json'}})
-    } catch(error) {
-      console.log(error.response.data)
-    }
-  }
-
-  const deleteData = () => {
-    clear()
   }
   
 
@@ -90,13 +71,14 @@ function App() {
           </Typography>
           
           {matchesPage ? <HeaderButton 
-          class={classes.personAddButton}
-          onClickHeaderButton={onClickMatchesPage}
-          icon={<PersonAdd color='secondary'/>}/> : <HeaderButton 
-           class={classes.displayMatchesButton}
-           onClickHeaderButton={onClickMatchesPage}
-           icon={<HowToReg color='primary'/>}
-           />}
+                            class={classes.personAddButton}
+                            onClickHeaderButton={onClickMatchesPage}
+                            icon={<PersonAdd color='secondary'/>} /> :
+                        <HeaderButton 
+                            class={classes.displayMatchesButton}
+                            onClickHeaderButton={onClickMatchesPage}
+                            icon={<HowToReg color='primary'/>}
+                            />}
         </header>
 
         <content className={classes.content}>
@@ -104,14 +86,7 @@ function App() {
         </content>
 
       </div>
-
-      <Button 
-       onClick={deleteData}
-       variant="contained" 
-       size="small" 
-       className={classes.deleteDataButton}>
-        Limpar Dados
-      </Button>
+      <DeleteDataButton/>
     </div>
   );
 }

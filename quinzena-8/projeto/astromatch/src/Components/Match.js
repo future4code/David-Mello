@@ -20,7 +20,7 @@ export default function Match(props) {
 
     return (
         <div className={classes.div}>
-            <img className={classes.img} src={props.img}/>
+            <img className={classes.img} alt={'profile'} src={props.img}/>
             <p className={classes.name}>{props.name}</p>
         </div>
     )

@@ -166,7 +166,7 @@ export default function FirstPage(props) {
            {loading? <Loading/> :
             profile ?  <Card className={clsx(classes.card, like ? classes.rotateout2brcw : null, dislike ? classes.rotateout2blccw : null)}>
                 <div style={{backgroundImage: `url(${profile.photo})`}} className={classes.cardBackground}></div>
-                <img className={classes.image} src={profile.photo}/>
+                <img className={classes.image} alt={'profile'} src={profile.photo}/>
                 <CardContent className={classes.cardContent}>
                 <div className={classes.nameDiv}>
                     <h1>{profile.name}</h1>
@@ -175,7 +175,7 @@ export default function FirstPage(props) {
                 <p className={classes.bio}>{profile.bio}</p>
                 </CardContent>
           </Card>
-          : <Card className={classes.card} style={'justify-content: center'}><p>Você já viu todos os perfis na sua área</p></Card>}
+          : <Card className={classes.card} style={{justifyContent: 'center'}}><p>Você já viu todos os perfis na sua área</p></Card>}
           
 
         {loading ? <div/> : <div className={classes.buttonsDiv}>
