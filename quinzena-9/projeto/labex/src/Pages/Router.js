@@ -6,7 +6,8 @@ import NewTripPage from './NewTripPage'
 import RemoveTripPage from './RemoveTripPage'
 import TripFormPage from './TripFormPage'
 import TripsPage from './TripsPage'
-import RemoveTripPage from './RemoveTripPage'
+import ApplicationsPage from './ApplicationsPage'
+import ErrorPage from './ErrorPage'
 
 
 
@@ -40,12 +41,16 @@ export default function Router() {
                     <TripsPage/>
                 </Route>
 
-                <Route exact path='/tripform'>
+                <Route exact path='/form/:trip'>
                     <TripFormPage/>
                 </Route>
 
                 <Route exact path='/'>
                     <HomePage/>
+                </Route>
+
+                <Route>
+                    <ErrorPage />
                 </Route>
 
 
