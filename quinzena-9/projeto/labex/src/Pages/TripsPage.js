@@ -4,6 +4,7 @@ import RouteButton from '../Components/RouteButton'
 export default function TripsPage() {
     return (
         <div>
+            <RouteButton type="goBack"/>
             <RouteButton name="Marte" route="/form/Marte"/>
             <RouteButton name="Terminus" route="/form/Terminus"/>
             <RouteButton name="Arrakis" route="/form/Arrakis"/>
