@@ -54,13 +54,13 @@ export default function RouteButton(props) {
         return () => {
             
         }
-    }, [])
+    }, [props.type])
 
 
     return (
         <div>
             <ThemeProvider theme={customTheme}>
-                { type === "goBack" ? <Button variant='default' onClick={goBack}><ArrowBackIos/></Button> :  
+                { type === "goBack" ? <Button onClick={goBack}><ArrowBackIos/></Button> :  
                 <Button variant="contained" className={color} onClick={onClickButton}>{props.name}</Button> }
             </ThemeProvider>
         </div>
