@@ -26,6 +26,15 @@ const useStyles = makeStyles(theme => ({
     },
     secondary: {
         backgroundColor: customTheme.pallete.secondary.light,
+    },
+    admin : {
+        width: '100%',
+        height: '6em',
+    },
+    adminSelected: {
+        backgroundColor: customTheme.pallete.primary.dark,
+        width: '100%',
+        height: '6em',
     }
 
 
@@ -39,6 +48,7 @@ export default function RouteButton(props) {
     const history = useHistory();
     const classes = useStyles();
     const color = props.color && props.color === 'secondary' ? classes.secondary : classes.default;
+
     
     const onClickButton = () => {
         history.push(props.route)
@@ -49,8 +59,14 @@ export default function RouteButton(props) {
     }
 
     useEffect(() => {
+
         if (props.type === "goBack") 
-        { setType(props.type) } 
+            { setType(props.type) 
+        } else if (props.type === "admin")
+            { setType(props.type)
+        } else if (props.type === "adminSelected") 
+            { setType(props.type) }  
+
         return () => {
             
         }
@@ -61,7 +77,12 @@ export default function RouteButton(props) {
         <div>
             <ThemeProvider theme={customTheme}>
                 { type === "goBack" ? <Button onClick={goBack}><ArrowBackIos/></Button> :  
-                <Button variant="contained" className={color} onClick={onClickButton}>{props.name}</Button> }
+                <Button 
+                    variant="contained" 
+                    className={color, (type === "adminSelected" && classes.adminSelected) || (type === "admin" && classes.admin)}
+                    onClick={onClickButton}>
+                    {props.name}
+                </Button> }
             </ThemeProvider>
         </div>
     )

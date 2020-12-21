@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core'
-import React, {useEffect} from 'react'
+import React from 'react'
 import axios from 'axios'
 import RouteButton from '../Components/RouteButton'
 import {Button} from '@material-ui/core'
@@ -11,11 +11,26 @@ const useStyles = makeStyles({
         display: 'flex',
         alignItems: 'center',
         justifyContent:'space-between',
+        border: '2px solid black'
     },
     headerLabexH1: {
-        marginLeft: '1em',
-        paddingRight:'1em',
+        margin: 0,
+        padding:'1em 0em',
         borderRight: '2px solid black',
+        width: '21%',
+    },
+    form: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        height: '50vh',
+        justifyContent: 'center',
+    },
+    input: {
+        margin: '1em 1em 2em',
+        width: '32%',
+        height: '8%'
+
     }
 })
 
@@ -55,8 +70,10 @@ export default function LoginPage() {
                 <h1 className={classes.headerAdminH1}>ÁREA ADMINISTRATIVA</h1>
                 <RouteButton type="goBack"/>
             </header>
-            <form onSubmit={onSubmitForm}>
+            <form onSubmit={onSubmitForm} className={classes.form}>
+                <label for={'email'}>E-mail:</label>
                 <input
+                    className={classes.input}
                     placeholder={'E-mail'}
                     value={form.email}
                     name={'email'}
@@ -64,7 +81,9 @@ export default function LoginPage() {
                     type={'email'}
                     required
                     />
-                <input
+                <label for={'password'}>Senha:</label>
+                <input 
+                    className={classes.input}
                     placeholder={'Senha'}
                     value={form.password}
                     name={'password'}
