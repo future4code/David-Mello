@@ -4,18 +4,69 @@ import AdminDropdownFilter from '../Components/AdminDropdownFilter'
 import {makeStyles} from '@material-ui/core'
 import useRequestData from '../CustomHooks/useRequestData'
 import LoadingScreen from '../Components/LoadingScreen'
+import HighlightedTrip from '../Components/HighlightedTrip'
 
     const useStyles = makeStyles({
         header: {
             display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '0 8px',
+            minHeight: '100px', 
+            borderBottom: '1px solid black',
 
+        },
+        logoDiv: {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            minWidth: '200px',
+        },
+        logoH1: { 
+            margin: 0,
+        },
+        logoP: {
+            margin: 0,
+            paddingLeft: '4px',
+            alignSelf:'flex-end'
+        },
+        tripHighlights: {
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100%',
+            padding: '24px 8px',
+        },
+        highlightedTripsDiv: {
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gridTemplateRows: '1fr 1fr',
+            gap: '8px 8px',
+            padding: '24px'
+        },
+        highlightedTrip: {
+            maxWidth: '100px'
         },
         filtersDiv: {
             display: 'flex',
+            backgroundColor: '#daa520',
+            justifyContent: 'space-around',
+
         },
         tripDiv: {
+        },
+        even: {
+            backgroundColor: 'ghostwhite',
+            padding: '8px',
             display: 'flex',
             justifyContent: 'space-around',
+            alignItems: 'center',
+        },
+        odd: {
+            backgroundColor: '#e0e0e0',
+            padding: '8px',
+            display: 'flex',
+            justifyContent: 'space-around',
+            alignItems: 'center',
         }
     });
 
@@ -32,18 +83,23 @@ export default function TripsPage() {
         <div>
         {tripsList ? <div>
             <header className={classes.header}>
-                <h1>Labex</h1>
-                <p>Viagens Espaciais</p>
+                <div className={classes.logoDiv}>
+                    <h1 className={classes.logoH1}>Labex</h1>
+                    <p className={classes.logoP}>Viagens Espaciais</p>
+                </div>
                 <RouteButton type="goBack"/>
             </header>
 
             <content>
                 
-                <section>
-                    <RouteButton name="Marte" route="/form/Marte"/>
-                    <RouteButton name="Terminus" route="/form/Terminus"/>
-                    <RouteButton name="Arrakis" route="/form/Arrakis"/>
-                    <RouteButton name="Miller" route="/form/Miller"/>
+                <section className={classes.tripHighlights}>
+                    <h2>Destinos em Alta</h2>
+                    <div className={classes.highlightedTripsDiv}>
+                        <HighlightedTrip classeName={classes.highlightedTrip} name="Marte" id={'idteste'}/>
+                        <HighlightedTrip classeName={classes.highlightedTrip} name="Terminus" id={'idteste'}/>
+                        <HighlightedTrip classeName={classes.highlightedTrip} name="Arrakis" id={'idteste'}/>
+                        <HighlightedTrip classeName={classes.highlightedTrip} name="Miller" id={'idteste'}/>
+                    </div>
                 </section>
                 
                 <section>
@@ -55,8 +111,8 @@ export default function TripsPage() {
                     </div>
 
                     <div className={classes.tripsListDiv}>
-                        {tripsList.map(e => {
-                            return <div className={classes.tripDiv} key={e.id}>
+                        {tripsList.map((e,index) => {
+                            return <div className={classes.tripDiv, (index%2 === 0 ? classes.even : classes.odd)} key={e.id}>
                                         <p>
                                             {e.name}
                                         </p>
