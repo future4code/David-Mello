@@ -2,7 +2,7 @@ import React from 'react'
 import RouteButton from '../Components/RouteButton'
 import useProtectedPage from '../CustomHooks/useProtectedPage'
 import { makeStyles } from '@material-ui/core'
-import AdminDropdownFilter from '../Components/AdminDropdownFilter'
+import SelectDropdown from '../Components/SelectDropdown'
 
 const useStyles = makeStyles({
     header: {
@@ -82,8 +82,8 @@ export default function ApplicationsPage() {
 
                     <div className={classes.titleDiv}>
                         <h2>Inscrições</h2>
-                        <AdminDropdownFilter name={'Destinos'} optionsList={['default', 'teste']}/>
-                        <AdminDropdownFilter name={'Ordem'} optionsList={['Nome', 'Mais Recente', 'Mais antigo', 'Idade']}/>
+                        <SelectDropdown name={'Destinos'} optionsList={['default', 'teste']}/>
+                        <SelectDropdown name={'Ordem'} optionsList={['Nome', 'Mais Recente', 'Mais antigo', 'Idade']}/>
                     </div>
 
                     <div className={classes.labels}>

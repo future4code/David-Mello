@@ -1,6 +1,6 @@
 import React from 'react'
 import RouteButton from '../Components/RouteButton'
-import AdminDropdownFilter from '../Components/AdminDropdownFilter'
+import SelectDropdown from '../Components/SelectDropdown'
 import {makeStyles} from '@material-ui/core'
 import useRequestData from '../CustomHooks/useRequestData'
 import LoadingScreen from '../Components/LoadingScreen'
@@ -106,8 +106,8 @@ export default function TripsPage() {
 
                     <div className={classes.filtersDiv}>
                         <h3>Todas as Viagens</h3>
-                        <AdminDropdownFilter optionsList={['teste']}></AdminDropdownFilter>
-                        <AdminDropdownFilter optionsList={['teste']}></AdminDropdownFilter>
+                        <SelectDropdown optionsList={['teste']}></SelectDropdown>
+                        <SelectDropdown optionsList={['teste']}></SelectDropdown>
                     </div>
 
                     <div className={classes.tripsListDiv}>
