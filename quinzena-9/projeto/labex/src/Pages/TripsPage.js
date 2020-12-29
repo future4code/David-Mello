@@ -75,7 +75,7 @@ import HighlightedTrip from '../Components/HighlightedTrip'
 export default function TripsPage() {
 
     const classes = useStyles()
-    const trips = useRequestData('https://us-central1-labenu-apis.cloudfunctions.net/labeX/davidMelloTang/trips', {})
+    const trips = useRequestData('https://us-central1-labenu-apis.cloudfunctions.net/labeX/davidMelloTang/trips',{} , {})
     console.log(trips)
     const tripsList = trips.trips
 

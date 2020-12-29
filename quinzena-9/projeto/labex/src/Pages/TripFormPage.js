@@ -49,7 +49,7 @@ export default function TripFormPage() {
     const pathParams = useParams();
     const classes = useStyles();
     const {form, onChange} = useForm({'name': '', 'age': '', 'applicationText': '', 'profession': '', 'country': ''})
-    const tripsList = useRequestData('https://us-central1-labenu-apis.cloudfunctions.net/labeX/davidMelloTang/trips', {})
+    const tripsList = useRequestData('https://us-central1-labenu-apis.cloudfunctions.net/labeX/davidMelloTang/trips', {},{})
     const BASEURL = 'https://us-central1-labenu-apis.cloudfunctions.net/labeX/davidMelloTang/'
     const countries = countriesArray();
    
