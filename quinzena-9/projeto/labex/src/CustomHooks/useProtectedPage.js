@@ -10,4 +10,5 @@ export default function useProtectedPage() {
             history.push('/login')
         } 
     }, [history])
+
 }

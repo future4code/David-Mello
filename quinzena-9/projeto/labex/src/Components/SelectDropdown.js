@@ -18,15 +18,16 @@ export default function AdminDropdownFilter(props) {
             <FormControl variant='filled' className={classes.formControl}>
                 <InputLabel htmlFor={'form'}>{props.name}</InputLabel>
                 <Select
-                 native
-                 inputProps={{
-                    name: 'form',
-                    id: 'form',
+                    native
+                    inputProps={{
+                        name: 'form',
+                        id: 'form',
                   }}
+                  onChange={props.onChange}
                   >
                     <option aria-label="None" value="" />
                     {props.optionsList.map(e => {
-                        return <option key={e} value={e}>{e}</option>
+                        return <option key={e} value={e.id}>{e.name}</option>
                     })}
                 </Select>
             </FormControl>

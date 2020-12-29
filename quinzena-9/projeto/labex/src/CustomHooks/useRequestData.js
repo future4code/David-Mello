@@ -3,11 +3,11 @@ import axios from 'axios'
 
 
 
-export default function useRequestData(url,initialState) {
+export default function useRequestData(url,header,initialState) {
     const [data, setData] = useState(initialState)
 
     useEffect(() => {
-        axios.get(url).then((response) => {
+        axios.get(url,header).then((response) => {
             setData(response.data)
         })
     }, [url])
