@@ -27,7 +27,11 @@ export default function AdminDropdownFilter(props) {
                   >
                     <option aria-label="None" value="" />
                     {props.optionsList.map(e => {
-                        return <option key={e} value={e.id? e.id : e}>{e.name ? e.name : e}</option>
+                        if (props.type === 'admin') {
+                            return <option key={e.name} value={e.id}>{e.name}</option>
+                        } else if (props.type === 'filter') {
+                            return <option key={e} value={e}>{e}</option>
+                        }
                     })}
                 </Select>
             </FormControl>

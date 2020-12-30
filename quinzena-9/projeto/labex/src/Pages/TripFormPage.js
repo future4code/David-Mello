@@ -52,7 +52,6 @@ export default function TripFormPage() {
     const tripsList = useRequestData('https://us-central1-labenu-apis.cloudfunctions.net/labeX/davidMelloTang/trips', {},{})
     const BASEURL = 'https://us-central1-labenu-apis.cloudfunctions.net/labeX/davidMelloTang/'
     const countries = countriesArray();
-    console.log(countries)
    
     const tripData = tripsList.trips && tripsList.trips.filter(e => {
 
@@ -123,6 +122,7 @@ export default function TripFormPage() {
                     <SelectDropdown 
                     value={form.country}
                     optionsList={countries}
+                    type={'filter'}
                     name={'country'} className={classes.formInput} onChange={handleInputChange}></SelectDropdown>
 
 

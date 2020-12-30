@@ -67,17 +67,6 @@ const useStyles = makeStyles({
     
 })
 
-function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
-  }
-const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-  ];
-
 
 export default function ApplicationsPage() {
 
@@ -95,10 +84,19 @@ export default function ApplicationsPage() {
     const selectedTrip = useRequestData(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/davidMelloTang/trip/${form.form}`, {'headers': {
         'auth': token}} ,false)
     console.log(form,token, selectedTrip !=={} && selectedTrip)
+   
     const handleInputChange = (event) => {
         const {value, name} = event.target
         onChange(value,name)
         console.log(value,name) 
+    }
+
+    const refreshAfterDecideCandidate = () => {
+        let inputValue = form.form
+        onChange("",'form')
+        onChange(inputValue, 'form')
+        
+        
     }
 
     return (
@@ -122,7 +120,7 @@ export default function ApplicationsPage() {
 
                     <div className={classes.titleDiv}>
                         <h2>Inscrições</h2>
-                        <SelectDropdown name={'Destinos'} optionsList={tripsOptionsList} onChange={handleInputChange}/>
+                        <SelectDropdown name={'Destinos'} optionsList={tripsOptionsList}  type={'admin'} onChange={handleInputChange}/>
                         <SelectDropdown name={'Ordem'} optionsList={['Nome', 'Mais Recente', 'Mais antigo', 'Idade']}/>
                     </div>
 
@@ -140,7 +138,7 @@ export default function ApplicationsPage() {
                             </TableRow>
                             </TableHead>
                             <TableBody>
-                                {form.form === "" ? <TableRow component="th" scope="row"><TableCell>Selecione um Destino</TableCell></TableRow>
+                                {form.form === "" ? <TableRow ><TableCell>Selecione um Destino</TableCell></TableRow>
                                 : selectedTrip && selectedTrip.trip.candidates.map((e,index) => {
 
                                     return (
@@ -150,10 +148,10 @@ export default function ApplicationsPage() {
                                             <TableCell align='left'>{e.profession}</TableCell>
                                             <TableCell align='left'>{selectedTrip.trip.name}</TableCell>
                                             <TableCell align='left'>{selectedTrip.trip.date}</TableCell>
-                                            <TableCell align='left'><DecideCandidateButton>V</DecideCandidateButton></TableCell>
-                                            <TableCell align='left'><DecideCandidateButton>X</DecideCandidateButton></TableCell>
+                                            <TableCell align='left'><DecideCandidateButton type={'approve'} tripId={form.form} candidateId={e.id} onClick={refreshAfterDecideCandidate}></DecideCandidateButton></TableCell>
+                                            <TableCell align='left'><DecideCandidateButton type={'reprove'} tripId={form.form} candidateId={e.id} onClick={refreshAfterDecideCandidate}></DecideCandidateButton></TableCell>
                                         </TableRow>
-                                            )
+                                            )  
                                     })}
                             </TableBody>
                         </Table>
