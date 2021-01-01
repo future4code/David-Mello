@@ -83,38 +83,40 @@ export default function TripsPage() {
     const handleInputChange = (event) => {
         const {value, name} = event.target
         onChange(value,name) 
-        console.log(form)
     }
 
+    const filter = tripsList !== undefined ? [...tripsList] : ["Loading"]
+    
+        filter.sort((a, b) => {
+            switch(form.form){
+                case "Nome":
+                    if(a.name < b.name) {
+                        return -1; 
+                    } else if(a.name > b.name) { 
+                        return 1; }
+                break;
+                case "Planeta":
+                    if(a.planet < b.planet) {
+                        return -1; 
+                    } else if(a.planet > b.planet) { 
+                        return 1; }
+                break;
+                case "Maior Duração":
+                    if(a.durationInDays > b.durationInDays) {
+                        return -1; 
+                      } else if(a.durationInDays < b.durationInDays) { 
+                        return 1; }
+                break;
+                case "Menor Duração":
+                    if(a.durationInDays < b.durationInDays) {
+                        return -1; 
+                      } else if(a.durationInDays > b.durationInDays) { 
+                        return 1; }
+            }
+        })
+    
 
-    const filter = tripsList !== undefined && tripsList.sort((a, b) => {
-        switch(form.form){
-            case "Nome":
-                if(a.name < b.name) {
-                    return -1; 
-                  } else if(a.name > b.name) { 
-                    return 1; }
-            break;
-            case "Planeta":
-                if(a.planet < b.planet) {
-                    return -1; 
-                } else if(a.planet > b.planet) { 
-                    return 1; }
-            break;
-            case "Maior Duração":
-                if(a.durationInDays > b.durationInDays) {
-                    return -1; 
-                  } else if(a.durationInDays < b.durationInDays) { 
-                    return 1; }
-            break;
-            case "Menor Duração":
-                if(a.durationInDays < b.durationInDays) {
-                    return -1; 
-                  } else if(a.durationInDays > b.durationInDays) { 
-                    return 1; }
-        }
-    })
-
+   
     return (
         <div>
         {tripsList ? <div>
@@ -143,6 +145,7 @@ export default function TripsPage() {
                     <div className={classes.filtersDiv}>
                         <h3>Todas as Viagens</h3>
                         <SelectDropdown 
+                            name={'Ordem'}
                             type={'filter'} 
                             optionsList={['Nome', 'Planeta','Maior Duração', 'Menor Duração']} 
                             onChange={handleInputChange}/>
