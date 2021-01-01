@@ -2,6 +2,16 @@ import React from 'react'
 import RouteButton from '../Components/RouteButton'
 import useProtectedPage from '../CustomHooks/useProtectedPage'
 import { makeStyles } from '@material-ui/core'
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import useForm from '../CustomHooks/useForm'
+import useRequestData from '../CustomHooks/useRequestData'
+import RemoveTripButton from '../Components/RemoveTripButton'
 
 const useStyles = makeStyles({
     header: {
@@ -46,7 +56,12 @@ export default function RemoveTripPage() {
     
     useProtectedPage();
     const classes = useStyles();
+    const {form, onChange} = useForm();
+    const tripsData = useRequestData('https://us-central1-labenu-apis.cloudfunctions.net/labeX/davidMelloTang/trips',{}, {'trips': ['teste',1]})
 
+    const refreshAfterRemoveTrip = () => {
+        window.location.reload(false);
+    }
 
     return (
         <div>
@@ -69,6 +84,34 @@ export default function RemoveTripPage() {
                     <p className={classes.message}>
                        REMOVER VIAGENS
                     </p>
+
+                    <div  className={classes.removeTripDiv}>
+                        <TableContainer component={Paper}>
+                            <Table className={classes.table} size="small" aria-label="a dense table">
+                                <TableHead>
+                                <TableRow>
+                                    <TableCell align='left' >Nome</TableCell>
+                                    <TableCell align='left' >Planeta</TableCell>
+                                    <TableCell align='left' >Data</TableCell>
+                                    <TableCell align='left' >Remover</TableCell>
+                                </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {tripsData && tripsData.trips.map((e,index) => {
+
+                                        return (
+                                            <TableRow key={e.id} className={index%2===0? classes.tripEven : classes.tripOdd}>
+                                                <TableCell component="th" scope="row">{e.name}</TableCell>
+                                                <TableCell align='left'>{e.planet}</TableCell>
+                                                <TableCell align='left'>{e.date}</TableCell>
+                                                <TableCell align='left'><RemoveTripButton type={'reprove'} tripId={e.id} onClick={refreshAfterRemoveTrip}></RemoveTripButton></TableCell>
+                                            </TableRow>
+                                                )  
+                                        })}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    </div>
                 </section>
             </content>    
         </div>
