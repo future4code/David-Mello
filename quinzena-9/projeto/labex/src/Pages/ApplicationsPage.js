@@ -83,12 +83,10 @@ export default function ApplicationsPage() {
 
     const selectedTrip = useRequestData(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/davidMelloTang/trip/${form.form}`, {'headers': {
         'auth': token}} ,false)
-    console.log(form,token, selectedTrip !=={} && selectedTrip)
    
     const handleInputChange = (event) => {
         const {value, name} = event.target
-        onChange(value,name)
-        console.log(value,name) 
+        onChange(value,name) 
     }
 
     const refreshAfterDecideCandidate = () => {

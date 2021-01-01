@@ -18,7 +18,6 @@ const useStyles = makeStyles({
     },
     content: {
         display: 'flex',
-        width: '100vw',
         height: '90vh',
 
     },
