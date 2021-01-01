@@ -5,6 +5,7 @@ import {makeStyles} from '@material-ui/core'
 import useRequestData from '../CustomHooks/useRequestData'
 import LoadingScreen from '../Components/LoadingScreen'
 import HighlightedTrip from '../Components/HighlightedTrip'
+import useForm from '../CustomHooks/useForm'
 
     const useStyles = makeStyles({
         header: {
@@ -76,8 +77,43 @@ export default function TripsPage() {
 
     const classes = useStyles()
     const trips = useRequestData('https://us-central1-labenu-apis.cloudfunctions.net/labeX/davidMelloTang/trips',{} , {})
-    console.log(trips)
     const tripsList = trips.trips
+    const {form, onChange} = useForm({'form': ''})
+
+    const handleInputChange = (event) => {
+        const {value, name} = event.target
+        onChange(value,name) 
+        console.log(form)
+    }
+
+
+    const filter = tripsList !== undefined && tripsList.sort((a, b) => {
+        switch(form.form){
+            case "Nome":
+                if(a.name < b.name) {
+                    return -1; 
+                  } else if(a.name > b.name) { 
+                    return 1; }
+            break;
+            case "Planeta":
+                if(a.planet < b.planet) {
+                    return -1; 
+                } else if(a.planet > b.planet) { 
+                    return 1; }
+            break;
+            case "Maior Duração":
+                if(a.durationInDays > b.durationInDays) {
+                    return -1; 
+                  } else if(a.durationInDays < b.durationInDays) { 
+                    return 1; }
+            break;
+            case "Menor Duração":
+                if(a.durationInDays < b.durationInDays) {
+                    return -1; 
+                  } else if(a.durationInDays > b.durationInDays) { 
+                    return 1; }
+        }
+    })
 
     return (
         <div>
@@ -106,19 +142,26 @@ export default function TripsPage() {
 
                     <div className={classes.filtersDiv}>
                         <h3>Todas as Viagens</h3>
-                        <SelectDropdown optionsList={['teste']}></SelectDropdown>
-                        <SelectDropdown optionsList={['teste']}></SelectDropdown>
+                        <SelectDropdown 
+                            type={'filter'} 
+                            optionsList={['Nome', 'Planeta','Maior Duração', 'Menor Duração']} 
+                            onChange={handleInputChange}/>
                     </div>
 
                     <div className={classes.tripsListDiv}>
-                        {tripsList.map((e,index) => {
+                        {filter.map((e,index) => {
                             return <div className={classes.tripDiv, (index%2 === 0 ? classes.even : classes.odd)} key={e.id}>
                                         <p>
                                             {e.name}
                                         </p>
-
+                                        <p>
+                                            {e.planet}
+                                        </p>
+                                        <p>
+                                            {e.durationInDays} dias
+                                        </p>
                                         <RouteButton
-                                        name={e.name} 
+                                        name={'Inscreva-se'} 
                                         route={`/form/${e.id}`}/>
                                     </div>
                         })}
