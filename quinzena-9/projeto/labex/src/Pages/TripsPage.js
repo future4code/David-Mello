@@ -95,10 +95,10 @@ export default function TripsPage() {
                 <section className={classes.tripHighlights}>
                     <h2>Destinos em Alta</h2>
                     <div className={classes.highlightedTripsDiv}>
-                        <HighlightedTrip classeName={classes.highlightedTrip} name="Marte" id={'idteste'}/>
-                        <HighlightedTrip classeName={classes.highlightedTrip} name="Terminus" id={'idteste'}/>
-                        <HighlightedTrip classeName={classes.highlightedTrip} name="Arrakis" id={'idteste'}/>
-                        <HighlightedTrip classeName={classes.highlightedTrip} name="Miller" id={'idteste'}/>
+                        <HighlightedTrip classeName={classes.highlightedTrip} name={tripsList[0].name} id={tripsList[0].id}/>
+                        <HighlightedTrip classeName={classes.highlightedTrip} name={tripsList[1].name} id={tripsList[1].id}/>
+                        <HighlightedTrip classeName={classes.highlightedTrip} name={tripsList[2].name} id={tripsList[2].id}/>
+                        <HighlightedTrip classeName={classes.highlightedTrip} name={tripsList[3].name} id={tripsList[3].id}/>
                     </div>
                 </section>
                 
