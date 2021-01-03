@@ -3,12 +3,14 @@ import {useHistory} from 'react-router-dom'
 import {makeStyles} from '@material-ui/core'
 import testImage from '../images/labexHeader.jpg'
 
+
 const useStyles = makeStyles({
     mainDiv:{
         position: 'relative',
         textAlign: 'center',
         color: 'white',
         backgroundColor: 'black',
+        cursor: 'pointer'
 
     },
     image: {
@@ -36,7 +38,7 @@ export default function HighlightedTrip(props) {
 
     return (
         <div onClick={onClickButton} className={classes.mainDiv}>
-            <img className={classes.image} src={testImage}/>
+            <img className={classes.image} alt="Terra" src={testImage}/>
             <h1 className={classes.text}>{props.name}</h1>
         </div>
     )

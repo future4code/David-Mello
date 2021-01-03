@@ -32,6 +32,7 @@ export default function AdminDropdownFilter(props) {
                         } else if (props.type === 'filter') {
                             return <option key={e} value={e}>{e}</option>
                         }
+                    return null;
                     })}
                 </Select>
             </FormControl>

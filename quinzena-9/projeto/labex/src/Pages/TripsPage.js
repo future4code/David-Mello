@@ -6,6 +6,8 @@ import useRequestData from '../CustomHooks/useRequestData'
 import LoadingScreen from '../Components/LoadingScreen'
 import HighlightedTrip from '../Components/HighlightedTrip'
 import useForm from '../CustomHooks/useForm'
+import {useHistory} from 'react-router-dom'
+
 
     const useStyles = makeStyles({
         header: {
@@ -22,6 +24,7 @@ import useForm from '../CustomHooks/useForm'
             flexDirection: 'column',
             alignItems: 'center',
             minWidth: '200px',
+            cursor: 'pointer'
         },
         logoH1: { 
             margin: 0,
@@ -42,7 +45,8 @@ import useForm from '../CustomHooks/useForm'
             gridTemplateColumns: '1fr 1fr',
             gridTemplateRows: '1fr 1fr',
             gap: '8px 8px',
-            padding: '24px'
+            padding: '24px',
+            
         },
         highlightedTrip: {
             maxWidth: '100px'
@@ -52,8 +56,6 @@ import useForm from '../CustomHooks/useForm'
             backgroundColor: '#daa520',
             justifyContent: 'space-around',
 
-        },
-        tripDiv: {
         },
         even: {
             backgroundColor: 'ghostwhite',
@@ -68,6 +70,9 @@ import useForm from '../CustomHooks/useForm'
             display: 'flex',
             justifyContent: 'space-around',
             alignItems: 'center',
+        },
+        tripListInfo: {
+            width: '150px'
         }
     });
 
@@ -79,6 +84,8 @@ export default function TripsPage() {
     const trips = useRequestData('https://us-central1-labenu-apis.cloudfunctions.net/labeX/davidMelloTang/trips',{} , {})
     const tripsList = trips.trips
     const {form, onChange} = useForm({'form': ''})
+    const history = useHistory();
+
 
     const handleInputChange = (event) => {
         const {value, name} = event.target
@@ -112,7 +119,11 @@ export default function TripsPage() {
                         return -1; 
                       } else if(a.durationInDays > b.durationInDays) { 
                         return 1; }
-            }
+                        break;
+                default: 
+                    return 0;
+                }
+            return 0;
         })
     
 
@@ -121,7 +132,7 @@ export default function TripsPage() {
         <div>
         {tripsList ? <div>
             <header className={classes.header}>
-                <div className={classes.logoDiv}>
+                <div className={classes.logoDiv}  onClick={() => {history.push('/')}}>
                     <h1 className={classes.logoH1}>Labex</h1>
                     <p className={classes.logoP}>Viagens Espaciais</p>
                 </div>
@@ -133,10 +144,10 @@ export default function TripsPage() {
                 <section className={classes.tripHighlights}>
                     <h2>Destinos em Alta</h2>
                     <div className={classes.highlightedTripsDiv}>
-                        <HighlightedTrip classeName={classes.highlightedTrip} name={tripsList[0].name} id={tripsList[0].id}/>
-                        <HighlightedTrip classeName={classes.highlightedTrip} name={tripsList[1].name} id={tripsList[1].id}/>
+                        <HighlightedTrip classeName={classes.highlightedTrip}  name={tripsList[0].name} id={tripsList[0].id}/>
+                        <HighlightedTrip classeName={classes.highlightedTrip}  name={tripsList[1].name} id={tripsList[1].id}/>
                         <HighlightedTrip classeName={classes.highlightedTrip} name={tripsList[2].name} id={tripsList[2].id}/>
-                        <HighlightedTrip classeName={classes.highlightedTrip} name={tripsList[3].name} id={tripsList[3].id}/>
+                        <HighlightedTrip classeName={classes.highlightedTrip}  name={tripsList[3].name} id={tripsList[3].id}/>
                     </div>
                 </section>
                 
@@ -154,14 +165,14 @@ export default function TripsPage() {
 
                     <div className={classes.tripsListDiv}>
                         {filter.map((e,index) => {
-                            return <div className={classes.tripDiv, (index%2 === 0 ? classes.even : classes.odd)} key={e.id}>
-                                        <p>
+                            return <div className={(index%2 === 0 ? classes.even : classes.odd)} key={e.id}>
+                                        <p className={classes.tripListInfo}>
                                             {e.name}
                                         </p>
-                                        <p>
+                                        <p className={classes.tripListInfo}>
                                             {e.planet}
                                         </p>
-                                        <p>
+                                        <p className={classes.tripListInfo}>
                                             {e.durationInDays} dias
                                         </p>
                                         <RouteButton

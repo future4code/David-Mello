@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import RouteButton from '../Components/RouteButton'
 import useProtectedPage from '../CustomHooks/useProtectedPage'
 import { makeStyles } from '@material-ui/core'
@@ -95,7 +95,7 @@ export default function ApplicationsPage() {
         onChange(inputValue, 'trip')   
     }
 
-    const filter = selectedTrip.trip.candidates !== undefined ? [...selectedTrip.trip.candidates] : ["Loading"]
+    const filter = selectedTrip.trip  !== undefined ? [...selectedTrip.trip.candidates] : ["Loading"]
     
     filter.sort((a, b) => {
         switch(form.order){
@@ -110,7 +110,11 @@ export default function ApplicationsPage() {
                     return -1; 
                   } else if(a.age > b.age) { 
                     return 1; }
+            break;
+            default: 
+                return 0;
         }
+        return 0;
     })
 
     return (
@@ -152,8 +156,8 @@ export default function ApplicationsPage() {
                             </TableRow>
                             </TableHead>
                             <TableBody>
-                                {form.trip === "" ? <TableRow ><TableCell>Selecione um Destino</TableCell></TableRow>
-                                :  filter.map((e,index) => {
+                                {form.trip === "" ? <TableRow >Selecione um Destino</TableRow>
+                                : selectedTrip && filter.map((e,index) => {
 
                                     return (
                                         <TableRow key={e.id} className={index%2===0? classes.candidateEven : classes.candidateOdd}>

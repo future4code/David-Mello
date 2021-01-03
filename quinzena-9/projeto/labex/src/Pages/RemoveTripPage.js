@@ -9,7 +9,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import useForm from '../CustomHooks/useForm'
 import useRequestData from '../CustomHooks/useRequestData'
 import RemoveTripButton from '../Components/RemoveTripButton'
 
@@ -56,7 +55,6 @@ export default function RemoveTripPage() {
     
     useProtectedPage();
     const classes = useStyles();
-    const {form, onChange} = useForm();
     const tripsData = useRequestData('https://us-central1-labenu-apis.cloudfunctions.net/labeX/davidMelloTang/trips',{}, {'trips': ['teste',1]})
 
     const refreshAfterRemoveTrip = () => {

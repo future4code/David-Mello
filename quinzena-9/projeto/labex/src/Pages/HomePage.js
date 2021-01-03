@@ -66,7 +66,7 @@ export default function HomePage() {
     return (
         <div>
             <header className={classes.header}>
-                <img className={classes.headerImage} src={labexHeader}></img>
+                <img className={classes.headerImage} alt="Terra" src={labexHeader}></img>
                 <h1 className={classes.h1}>LabeX</h1>
             </header>
             <content>

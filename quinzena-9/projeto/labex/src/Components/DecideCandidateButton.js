@@ -38,6 +38,7 @@ export default function DecideCandidateButton(props) {
             },{'headers': {'Content-Type': 'application/json', 'auth': token}});
             
             props.onClick()
+            console.log(response)
         } catch(error) {
             console.log(error.response)
         }

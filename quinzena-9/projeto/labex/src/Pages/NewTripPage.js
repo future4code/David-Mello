@@ -79,6 +79,7 @@ export default function NewTripPage() {
             "Content-Type": "application/json",
             'auth': token}})
            alert('Viagem criada com sucesso!')
+           console.log(response)
         } catch(error) {
            console.log(error.response) 
            console.log(header,{...form, 'durationInDays': Number(form.durationInDays)})

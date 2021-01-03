@@ -28,6 +28,7 @@ export default function RemoveTripButton(props) {
              {'headers': {'Content-Type': 'application/json'}});
             
             props.onClick()
+            console.log(response)
         } catch(error) {
             console.log(error.response)
         }

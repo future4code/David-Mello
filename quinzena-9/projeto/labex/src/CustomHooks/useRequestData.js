@@ -10,7 +10,7 @@ export default function useRequestData(url,header,initialState) {
         axios.get(url,header).then((response) => {
             setData(response.data)
         })
-    }, [url])
+    }, [url, header])
     
     return data
 }

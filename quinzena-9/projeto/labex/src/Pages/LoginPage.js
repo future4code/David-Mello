@@ -5,6 +5,7 @@ import RouteButton from '../Components/RouteButton'
 import {Button} from '@material-ui/core'
 import useForm from '../CustomHooks/useForm'
 import { useHistory } from 'react-router'
+import {TextField} from '@material-ui/core'
 
 const useStyles = makeStyles({
     header: {
@@ -31,6 +32,9 @@ const useStyles = makeStyles({
         width: '32%',
         height: '8%'
 
+    },
+    button: {
+        margin: '1em'
     }
 })
 
@@ -71,8 +75,9 @@ export default function LoginPage() {
                 <RouteButton type="goBack"/>
             </header>
             <form onSubmit={onSubmitForm} className={classes.form}>
-                <label for={'email'}>E-mail:</label>
-                <input
+                <TextField
+                    label="Email:" 
+                    variant="filled"
                     className={classes.input}
                     placeholder={'E-mail'}
                     value={form.email}
@@ -81,8 +86,9 @@ export default function LoginPage() {
                     type={'email'}
                     required
                     />
-                <label for={'password'}>Senha:</label>
-                <input 
+                <TextField
+                    label="Senha:" 
+                    variant="filled"
                     className={classes.input}
                     placeholder={'Senha'}
                     value={form.password}
@@ -92,8 +98,9 @@ export default function LoginPage() {
                     required
                     />
                 <Button
-                type='submit'
-                variant="contained">
+                className={classes.button}
+                type={'submit'}
+                variant={"contained"}>
                     Entrar
                 </Button>
             </form>          
