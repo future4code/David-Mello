@@ -41,6 +41,7 @@ const useStyles = makeStyles({
     },
     tripP: {
         width: '70%',
+        textAlign: 'center'
     },
     adminSection: {
         display: 'flex',
@@ -73,9 +74,12 @@ export default function HomePage() {
                 <section className={classes.tripsSection}>
                     <h2 className={classes.tripTitle}>Escolha sua viagem</h2>
                     
-                    <p className={classes.tripP}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut hendrerit mauris at enim tempus, id semper ex blandit. Nam nec sodales orci, eu pulvinar justo. Proin consequat mauris a sodales lacinia. Vestibulum sed tellus vitae turpis iaculis dignissim. Morbi interdum et diam a auctor. Morbi id facilisis nisi. Fusce fermentum ultrices elit, a interdum lacus commodo condimentum. In ac nulla quis neque mattis ultrices eget et lorem. Sed sed leo quis nisi vestibulum ultricies.
-
-Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean sed efficitur velit, in finibus arcu. Vivamus fermentum tellus nec luctus lobortis. Ut commodo elementum ex, vel condimentum sem pretium ut. Nulla luctus odio eu tellus maximus vulputate in ut nibh. Aenean fringilla quis tortor quis luctus. Vivamus eu justo elit.</p>
+                    <p className={classes.tripP}>
+                        Tenha incríveis experiências interplanetárias com todo conforto e segurança. <br/>
+                        Na LabeX você encontra pacotes com passagem aérea, hotel, passeios e serviços que garantem uma viagem mais tranquila! 
+                        Também temos as naves mais modernas da galáxia, tecnologia de ponta para te levar para qualquer lugar dentro e fora do sistema solar.<br/><br/>
+                        Realize a viagem dos seus sonhos com condições que só a Labex oferece para você! Suas compras podem ser realizadas em até 10x sem juros, no cartão de crédito, transferência bancária ou à vista. Além de benefícios exclusivos que você pode encontrar numa loja LabeX.
+                    </p>
                     
                     <RouteButton name="Ver Destinos" route="/trips"/>
                 </section>
