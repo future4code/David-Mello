@@ -145,7 +145,8 @@ export default function TripsPage() {
                     <div className={classes.filtersDiv}>
                         <h3>Todas as Viagens</h3>
                         <SelectDropdown 
-                            name={'Ordem'}
+                            name={'form'}
+                            placeholder={'Ordem'}
                             type={'filter'} 
                             optionsList={['Nome', 'Planeta','Maior Duração', 'Menor Duração']} 
                             onChange={handleInputChange}/>

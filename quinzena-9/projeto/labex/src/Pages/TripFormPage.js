@@ -68,8 +68,9 @@ export default function TripFormPage() {
         try {
             const response = await axios.post(`${BASEURL}trips/${pathParams.trip}/apply`, form)
             alert('inscrição feita com sucesso!')
+
         } catch(error) {
-            console.log(error.data)
+            console.log(error.response)
         }
     }
 
@@ -123,7 +124,8 @@ export default function TripFormPage() {
                     value={form.country}
                     optionsList={countries}
                     type={'filter'}
-                    name={'country'} className={classes.formInput} onChange={handleInputChange}></SelectDropdown>
+                    name={'country'}
+                    placeholder={'País'} className={classes.formInput} onChange={handleInputChange}></SelectDropdown>
 
 
                     <button>Enviar</button>

@@ -75,13 +75,13 @@ export default function ApplicationsPage() {
        
     useProtectedPage();
     const classes = useStyles();
-    const {form, onChange} = useForm({'form':''});
+    const {form, onChange} = useForm({'trip':'', 'order': ''});
     const tripsData = useRequestData('https://us-central1-labenu-apis.cloudfunctions.net/labeX/davidMelloTang/trips',{}, {'trips': ['teste',1]})
     const tripsOptionsList = tripsData !== {'trips':['teste',1]} && tripsData.trips.map(e => {
         return {'id': e.id, 'name': e.name}
     })
 
-    const selectedTrip = useRequestData(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/davidMelloTang/trip/${form.form}`, {'headers': {
+    const selectedTrip = useRequestData(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/davidMelloTang/trip/${form.trip}`, {'headers': {
         'auth': token}} ,false)
    
     const handleInputChange = (event) => {
@@ -90,12 +90,28 @@ export default function ApplicationsPage() {
     }
 
     const refreshAfterDecideCandidate = () => {
-        let inputValue = form.form
-        onChange("",'form')
-        onChange(inputValue, 'form')
-        
-        
+        let inputValue = form.trip
+        onChange("",'trip')
+        onChange(inputValue, 'trip')   
     }
+
+    const filter = selectedTrip.trip.candidates !== undefined ? [...selectedTrip.trip.candidates] : ["Loading"]
+    
+    filter.sort((a, b) => {
+        switch(form.order){
+            case "Nome":
+                if(a.name < b.name) {
+                    return -1; 
+                } else if(a.name > b.name) { 
+                    return 1; }
+            break;
+            case "Idade":
+                if(a.age < b.age) {
+                    return -1; 
+                  } else if(a.age > b.age) { 
+                    return 1; }
+        }
+    })
 
     return (
         <div>
@@ -118,9 +134,9 @@ export default function ApplicationsPage() {
 
                     <div className={classes.titleDiv}>
                         <h2>Inscrições</h2>
-                        <SelectDropdown name={'Destinos'} optionsList={tripsOptionsList}  type={'admin'} onChange={handleInputChange}/>
-                        <SelectDropdown name={'Ordem'} optionsList={['Nome', 'Mais Recente', 'Mais antigo', 'Idade']}/>
-                    </div>
+                        <SelectDropdown name={'trip'} placeholder={'Destinos'} optionsList={tripsOptionsList}  type={'admin'} onChange={handleInputChange}/>
+                        <SelectDropdown name={'order'} placeholder={'Ordem'} optionsList={['Nome', 'Idade']} type={'filter'} onChange={handleInputChange}/>
+                    </div>      
 
                     <TableContainer component={Paper}>
                         <Table className={classes.table} size="small" aria-label="a dense table">
@@ -136,18 +152,18 @@ export default function ApplicationsPage() {
                             </TableRow>
                             </TableHead>
                             <TableBody>
-                                {form.form === "" ? <TableRow ><TableCell>Selecione um Destino</TableCell></TableRow>
-                                : selectedTrip && selectedTrip.trip.candidates.map((e,index) => {
+                                {form.trip === "" ? <TableRow ><TableCell>Selecione um Destino</TableCell></TableRow>
+                                :  filter.map((e,index) => {
 
                                     return (
-                                        <TableRow key={e.name} className={index%2===0? classes.candidateEven : classes.candidateOdd}>
+                                        <TableRow key={e.id} className={index%2===0? classes.candidateEven : classes.candidateOdd}>
                                             <TableCell component="th" scope="row">{e.name}</TableCell>
                                             <TableCell align='left'>{e.age}</TableCell>
                                             <TableCell align='left'>{e.profession}</TableCell>
                                             <TableCell align='left'>{selectedTrip.trip.name}</TableCell>
                                             <TableCell align='left'>{selectedTrip.trip.date}</TableCell>
-                                            <TableCell align='left'><DecideCandidateButton type={'approve'} tripId={form.form} candidateId={e.id} onClick={refreshAfterDecideCandidate}></DecideCandidateButton></TableCell>
-                                            <TableCell align='left'><DecideCandidateButton type={'reprove'} tripId={form.form} candidateId={e.id} onClick={refreshAfterDecideCandidate}></DecideCandidateButton></TableCell>
+                                            <TableCell align='left'><DecideCandidateButton type={'approve'} tripId={form.trip} candidateId={e.id} onClick={refreshAfterDecideCandidate}></DecideCandidateButton></TableCell>
+                                            <TableCell align='left'><DecideCandidateButton type={'reprove'} tripId={form.trip} candidateId={e.id} onClick={refreshAfterDecideCandidate}></DecideCandidateButton></TableCell>
                                         </TableRow>
                                             )  
                                     })}

@@ -16,11 +16,11 @@ export default function AdminDropdownFilter(props) {
     return (
         <div>
             <FormControl variant='filled' className={classes.formControl}>
-                <InputLabel htmlFor={'form'}>{props.name}</InputLabel>
+                <InputLabel htmlFor={props.name}>{props.placeholder}</InputLabel>
                 <Select
                     native
                     inputProps={{
-                        name: 'form',
+                        name: props.name,
                         id: 'form',
                   }}
                   onChange={props.onChange}
