@@ -167,7 +167,6 @@ export default function TripFormPage() {
                         label="Texto de Inscrição:"
                         multiline
                         rows={4}
-                        defaultValue="Default Value"
                         variant="filled" 
                         value={form.applicationText}
                         name={'applicationText'} 

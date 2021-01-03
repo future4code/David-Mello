@@ -79,7 +79,7 @@ export default function RouteButton(props) {
                 { type === "goBack" ? <Button onClick={goBack}><ArrowBackIos/></Button> :  
                 <Button 
                     variant="contained" 
-                    className={color || (type === "adminSelected" && classes.adminSelected) || (type === "admin" && classes.admin)}
+                    className={color, (type === "adminSelected" && classes.adminSelected) || (type === "admin" && classes.admin)}
                     onClick={onClickButton}>
                     {props.name}
                 </Button> }

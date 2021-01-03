@@ -28,6 +28,10 @@ const useStyles = makeStyles({
         gridTemplateColumns: '1fr',
         gridTemplateRows: '1fr 1fr 1fr 6fr',
     },
+    routeButton: {
+        width: '100%',
+        height: '6em',
+    },
     homeButtonDiv: {
         alignSelf: "end",
     },
@@ -35,6 +39,7 @@ const useStyles = makeStyles({
         border: '1px solid black',
         borderRight: '2px solid black',
         width: '79%',
+        textAlign: 'center'
     },
     message: {
         fontSize: 'xx-large',
@@ -57,9 +62,9 @@ export default function AdminPage() {
 
             <content className={classes.content}>
                 <aside className={classes.sidebar}>
-                    <RouteButton type={'admin'} name="Administrar candidaturas" route="admin/applications"/>
-                    <RouteButton type={'admin'} name="Criar Nova Viagem" route="admin/newtrip"/>
-                    <RouteButton type={'admin'} name="Remover Viagens" route="admin/removetrip"/>
+                    <RouteButton className={classes.routeButton} type={'admin'} name="Administrar candidaturas" route="admin/applications"/>
+                    <RouteButton className={classes.routeButton} type={'admin'} name="Criar Nova Viagem" route="admin/newtrip"/>
+                    <RouteButton className={classes.routeButton} type={'admin'} name="Remover Viagens" route="admin/removetrip"/>
                     <div className={classes.homeButtonDiv}>
                         <RouteButton type={'admin'} name="Voltar para a Home" route="/"/>
                     </div>

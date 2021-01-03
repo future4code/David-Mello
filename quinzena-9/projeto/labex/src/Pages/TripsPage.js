@@ -39,6 +39,7 @@ import {useHistory} from 'react-router-dom'
             flexDirection: 'column',
             height: '100%',
             padding: '24px 8px',
+            alignItems: 'center'
         },
         highlightedTripsDiv: {
             display: 'grid',
